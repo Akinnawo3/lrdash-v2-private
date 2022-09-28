@@ -1,0 +1,34 @@
+@import "variables";
+
+.page-body::-webkit-scrollbar {
+  display: none;
+}
+
+.s-layout {
+  display: flex;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  .page-body {
+    // background: $white-color !important;
+    margin-left: 213px;
+    border-radius: 20px 0 0 20px;
+    height: 95vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .s-layout {
+    padding-top: 0;
+    padding-bottom: 0;
+    .page-body {
+      height: 100%;
+      min-height: 100vh;
+      margin-left: 0 !important;
+      border-radius: 0;
+    }
+  }
+}
