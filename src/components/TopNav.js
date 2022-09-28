@@ -1,7 +1,5 @@
-
-const PagesTop = () => {
-
+const TopNav = () => {
   return <div className={"position-sticky"}>Pages top</div>;
 };
 
-export default PagesTop;
+export default TopNav;
