@@ -1,0 +1,29 @@
+progress {
+  border: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50% !important;
+  // background: green;
+}
+
+// progress {
+//   color: black;
+// }
+
+progress::-moz-progress-bar {
+  background: whitesmoke;
+  border-radius: 50% !important;
+  
+}
+
+progress::-webkit-progress-bar {
+  background: whitesmoke;
+}
+
+#female-progress::-webkit-progress-value {
+  background: #a33db3;
+}
+
+#male-progress::-webkit-progress-value {
+  background: #0065e1;
+}

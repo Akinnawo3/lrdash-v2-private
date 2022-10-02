@@ -5,16 +5,17 @@ import {Container} from "reactstrap";
 import {useContext} from "react";
 import {AppPrefrenceContext} from "../../contexts/AppPrefrenceContext";
 
-const StandardLayout = ({children}) => {
-  const {setExpanded} = useContext(AppPrefrenceContext);
+const StandardLayout = ({children, title}) => {
+  const {expanded, setExpanded, toggle} = useContext(AppPrefrenceContext);
 
   return (
     <div className="s-layout">
       <SideBar />
-      <Container fluid className="page-body">
-        <TopNav />
-        <div onClick={() => setExpanded(false)}>{children}</div>
-      </Container>
+      <div className="page-body w-100 position-relative">
+        <TopNav title={title}/>
+        <div className="container" >{children}</div>
+        {expanded && <div className="position-absolute h-100 w-100 top-0 start-0 pages-overlay d-md-none" onClick={toggle}></div>}
+      </div>
     </div>
   );
 };

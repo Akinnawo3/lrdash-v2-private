@@ -6,17 +6,17 @@
 
 .s-layout {
   display: flex;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
+  //   padding-top: 2.5vh;
+  //   padding-bottom: 2.5vh;
   .page-body {
     // background: $white-color !important;
-    margin-left: 213px;
-    border-radius: 20px 0 0 20px;
+    margin-left: 210px;
+    // border-radius: 20px 0 0 20px;
     height: 95vh;
     overflow-y: scroll;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none;
-    padding: 20px;
+    // padding: 20px;
   }
 }
 
@@ -31,4 +31,8 @@
       border-radius: 0;
     }
   }
+}
+
+.pages-overlay {
+  background: rgb(0, 0, 0, 0.3);
 }

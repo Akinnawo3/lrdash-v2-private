@@ -3,7 +3,7 @@ import StandardLayout from "../components/layouts/StandardLayout";
 import AuthMiddleware from "../middleware/AuthMiddleware";
 import {userRoutes} from "../routes/routesList";
 
-const InnerPages = () => {
+const ProtectedPages = () => {
   return (
     <Routes>
       {userRoutes.map((route, idx) => (
@@ -13,4 +13,4 @@ const InnerPages = () => {
   );
 };
 
-export default InnerPages;
+export default ProtectedPages;

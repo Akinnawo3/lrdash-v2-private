@@ -20,3 +20,19 @@ body {
 .App {
   height: 100%;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// .pro-sidebar > .pro-sidebar-inner {
+//   background: $background-color;
+// }
+
+.gradient-btn {
+  background: $gradient-bg !important;
+}
+
+.gradient-text {
+  color: $gradient-text;
+}

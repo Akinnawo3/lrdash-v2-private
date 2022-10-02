@@ -1,0 +1,15 @@
+@import "variables";
+
+.top-nav {
+  // background: $nav-background-color;
+  height: 60px;
+  .icons-box {
+    padding: 2px 6px;
+    background-color: $icons-box-bg;
+    border-radius: 10px;
+  }
+}
+
+.sidebar-control {
+  z-index: 1000 !important;
+}

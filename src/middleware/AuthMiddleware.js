@@ -25,7 +25,7 @@ const AuthMiddleware = ({component: Component, layout: Layout, isAuthProtected, 
       <Helmet>
         <title>{"Lagos Ride Admin - " + pageTitle}</title>
       </Helmet>
-      <Layout title={leadText}>
+      <Layout title={pageTitle}>
         <Component
         //  {...props}
         />
