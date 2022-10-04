@@ -1,24 +1,21 @@
-export const baseURL = "http://35.177.244.157";
-// export const baseURL = "http://127.0.0.1:8000";
+import React, {useContext} from "react";
+import {AuthContext} from "../contexts/AuthContext";
+export let api;
 
-// auth urls
-export const signupURL = "user/registration/";
-export const signinURL = "user/login/";
-export const activateAccountURL = "user/registration/verify-email/";
-export const initiatePasswordResetURL = "user/password/reset/";
-export const passwordResetURL = "user/password/reset/confirm/";
-export const triggerVerificationResendURL = "user/registration/resend-email/";
-export const signoutURL = "user/logout/";
-export const passwordChangeURL = "user/password/change/";
-export const tokenRefreshURL = "user/token/refresh/";
-export const facebookURL = "user/facebook/";
-export const googleURL = "user/google/";
+const useUrlComp = () => {
+  const {auth} = useContext(AuthContext);
+  const liveApi = {
+    oem: "https://oem-service-microservices.api.lagosride.com",
+    fileUpload: "https://fileupload-service-microservices.api.lagosride.com",
+    messaging: "https://message-service-microservices.api.lagosride.com",
+  };
+  const testApi = {
+    oem: "https://staging-server.lagosride.com/oem-service",
+    fileUpload: "https://staging-server.lagosride.com/fileupload-service",
+    messaging: "https://staging-server.lagosride.com/message-service",
+  };
+  api = auth?.data_mode === "live" ? liveApi : testApi;
+  return null;
+};
 
-// main urls
-export const userProfileURL = "user/user/";
-export const getSBAappsURL = "apps/";
-export const getbusinessesURL = "business/";
-export const getPlansURL = "sub/plans/";
-export const transactionsURL = "sub/transactions/";
-export const verifyTransactionURL = "sub/verify-transaction/";
-export const cancelSubscriptionURL = "sub/cancel-subscription/";
+export default useUrlComp;

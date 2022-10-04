@@ -8,21 +8,21 @@ const DailyTripsGraph = ({loading, getDownloadsByDate, downloadsByDate}) => {
   // const [endDate, setEndDate] = useState(getTodayDate());
   const [dateType, setDateType] = useState("monthly");
   const options = {
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
-            color: "rgba(0, 0, 0, 0)",
+    options: {
+      scales: {
+        x: {
+          grid: {
+            // show: false,
+            color: "#f9f",
           },
         },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            color: "rgba(0, 0, 0, 0)",
+        y: {
+          grid: {
+            // display: false,
+            color: "#f9f",
           },
         },
-      ],
+      },
     },
     plugins: {
       legend: {

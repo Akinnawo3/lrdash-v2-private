@@ -32,7 +32,7 @@ const PerformanceTable = ({loading, getDownloadsByDate, downloadsByDate}) => {
         {/* <span>Today</span> */}
       </CardTitle>
       <div>
-        <Table striped>
+        <Table striped responsive>
           <thead className="fw-normal">
             <tr>
               <th>First Name</th>

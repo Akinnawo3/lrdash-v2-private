@@ -1,62 +1,36 @@
-import { activateAccountURL, initiatePasswordResetURL, passwordChangeURL, passwordResetURL, signinURL, signoutURL, signupURL, triggerVerificationResendURL, facebookURL, googleURL } from "../constants/urls";
-import { postApi } from "../helpers/RequestHelper";
+import {useContext, useState} from "react";
+import axios from "axios";
+// import {AuthActionSuccess, LogoutAction} from "../actions/AuthActions";
+import {NotificationManager} from "react-notifications";
+import {api} from "../constants/urls";
+import {LoadingContext} from "../contexts/LoadingContext.js";
+import {AuthContext} from "../contexts/AuthContext.js";
+import {useLocation, useNavigate} from "react-router";
+import {toastifyPromises} from "../helpers/toastifyHelper";
 
-// for signup
-export const signupUser = async ({ payload }) => {
-    const res = await (postApi(signupURL, payload));
-    return res;
-}
+export const useAuthApiServices = () => {
+  // api
+  const navigate = useNavigate();
+  const {postLoading, setPostLoading} = useContext(LoadingContext);
+  const {loginUserAction, logoutUserAction} = useContext(AuthContext);
+  const loginUser = async (body) => {
+    setPostLoading(true);
+    const asyncFunction = axios.post(`https://users-service-microservices.api.lagosride.com/v1.1/auth/login`, body);
+    const res = await toastifyPromises({asyncFunction, msgPrefix: "Login"});
+    if (res.data.status !== "error") {
+      loginUserAction(res.data.data);
+      window.location.replace("/");
+    }
+    setPostLoading(false);
+  };
 
-// for signin
-export const signinUser = async ({ payload }) => {
-    const res = await (postApi(signinURL, payload));
-    return res;
-}
+  const logoutUser = () => {
+    logoutUserAction();
+    navigate("/signin");
+  };
 
-// for account activation with token gotten from email
-export const activateAccount = async ({ payload }) => {
-    const res = await (postApi(activateAccountURL, payload));
-    return res;
-}
-
-// for triggering the resending of email incase not found
-export const triggerVerificationResend = async ({ payload }) => {
-    const res = await (postApi(triggerVerificationResendURL, payload));
-    return res;
-}
-
-// for initiating the sending if email reset instructions
-export const initiatePasswordReset = async ({ payload }) => {
-    const res = await (postApi(initiatePasswordResetURL, payload));
-    return res;
-}
-
-// for resetting the password with the information gotten via email
-export const passwordReset = async ({ payload }) => {
-    const res = await (postApi(passwordResetURL, payload));
-    return res;
-}
-
-// to log user out
-export const logoutUser = async () => {
-    const res = await (postApi(signoutURL));
-    return res;
-}
-
-// to change password from inside the dashboard
-export const passwordChange = async ({ payload }) => {
-    const res = await (postApi(passwordChangeURL, payload));
-    return res;
-}
-
-// to change password from inside the dashboard
-export const loginFacebook = async ({ payload }) => {
-    const res = await (postApi(facebookURL, payload));
-    return res;
-}
-
-// to change password from inside the dashboard
-export const loginGoogle = async ({ payload }) => {
-    const res = await (postApi(googleURL, payload));
-    return res;
-}
+  return {
+    loginUser,
+    logoutUser,
+  };
+};

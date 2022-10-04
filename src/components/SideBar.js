@@ -42,10 +42,11 @@ const SideBar = () => {
       </div>
       <Navigation
         // you can use your own router's api to get pathname
-        activeItemId="/dashboard"
+        activeItemId="/"
         onSelect={({itemId}) => {
           // maybe push to the route
           itemId && navigate(itemId);
+          itemId && setExpanded(false);
         }}
         items={
           menuItems.map((item) => ({

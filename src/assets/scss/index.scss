@@ -36,3 +36,8 @@ body {
 .gradient-text {
   color: $gradient-text;
 }
+
+td,
+th {
+  white-space: nowrap;
+}

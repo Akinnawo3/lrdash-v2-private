@@ -10,12 +10,12 @@ const Performance = () => {
   return (
     <div className="table-wrapper mb-3">
       <Row>
-        <Col md={8}>
+        <Col md={7} lg={8} >
           <Row>
-            <Col md={4} className="mt-3">
+            <Col md={12} lg={4} className="mt-3">
               <DougnutProjection />
             </Col>
-            <Col md={8} className="mt-3">
+            <Col md={12} lg={8}className="mt-3">
               <DailyTripsGraph />
             </Col>
             <Col className="mt-3">
@@ -23,7 +23,7 @@ const Performance = () => {
             </Col>
           </Row>
         </Col>
-        <Col md={4} className="mt-3">
+        <Col md={5} lg={4} className="mt-3">
           <TopFive />
         </Col>
       </Row>

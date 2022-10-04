@@ -7,8 +7,11 @@ import {AppPrefrenceContext} from "../contexts/AppPrefrenceContext";
 import {GiCrossMark} from "react-icons/gi";
 import {IoMdLogOut} from "react-icons/io";
 import {Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {useAuthApiServices} from "../services/authApiServices";
+import {confirmDialogue} from "../helpers/confirmationDialogue";
 
 const TopNav = ({title}) => {
+  const {logoutUser} = useAuthApiServices();
   const [dropdownToggle, setDropdownToggle] = useState(false);
   const {expanded, toggle} = useContext(AppPrefrenceContext);
   return (
@@ -48,7 +51,7 @@ const TopNav = ({title}) => {
               <RiArrowDownSLine size={25} style={{color: "#00D2A8"}} onClick={() => setDropdownToggle(!dropdownToggle)} data-toggle="dropdown" />
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem>
+              <DropdownItem onClick={() => confirmDialogue({message: "Logout user", asyncFunction: logoutUser})}>
                 <IoMdLogOut size="27" color="red" />
                 <span className="fw-bold ms-2">LOG OUT</span>
               </DropdownItem>
