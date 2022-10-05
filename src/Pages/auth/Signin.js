@@ -28,7 +28,7 @@ const Signin = (props) => {
             <InputGroup>
               <Input name="password" type={passwordView} placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
               <InputGroupText className="cursor-pointer" onClick={() => (passwordView === "password" ? setPasswordView("text") : setPasswordView("password"))}>
-                {passwordView === "password" ? <AiOutlineEye className="gradient-text" /> : <AiOutlineEyeInvisible className="gradient-text" />}
+                {passwordView === "password" ? <AiOutlineEye color="#04ADB2" /> : <AiOutlineEyeInvisible color="#04ADB2" />}
               </InputGroupText>
             </InputGroup>
           </FormGroup>

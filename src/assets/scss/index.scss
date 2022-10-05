@@ -34,7 +34,20 @@ body {
 }
 
 .gradient-text {
-  color: $gradient-text;
+  background: $gradient-bg !important;
+  background-size: 100%;
+  -webkit-background-clip: text !important;
+  -moz-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.gradient-text {
+  background: $gradient-bg !important;
+  background-size: 100%;
+  -webkit-background-clip: text !important;
+  -moz-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 td,
