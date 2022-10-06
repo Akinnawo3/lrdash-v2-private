@@ -1,10 +1,12 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Form, Card, CardHeader, FormGroup, Input, Label, Button, InputGroup, InputGroupText} from "reactstrap";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 import {useAuthApiServices} from "../../services/authApiServices.js";
+import {LoadingContext} from "../../contexts/LoadingContext.js";
 
 const Signin = (props) => {
   const {loginUser} = useAuthApiServices();
+  const {postLoading} = useContext(LoadingContext);
 
   const [passwordView, setPasswordView] = useState("password");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -32,7 +34,7 @@ const Signin = (props) => {
               </InputGroupText>
             </InputGroup>
           </FormGroup>
-          <Button className="w-100 my-3 gradient-btn fw-bold">SIGN IN</Button>
+          <Button disabled={postLoading} className="w-100 my-3 gradient-btn fw-bold">SIGN IN</Button>
 
           <div className="fw-bold text-center my-3 gradient-text">Forgot Password?</div>
         </Form>

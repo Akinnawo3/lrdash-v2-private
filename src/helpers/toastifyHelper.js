@@ -16,57 +16,68 @@ export const toastify = ({type, icon, message}) =>
     progress: undefined,
   });
 
-export const toastifyPromises = ({asyncFunction, msgPrefix}) => {
-  let resData;
-  console.log(resData);
+// export const toastifyPromises = ({asyncFunction, msgPrefix}) => {
+//   let resData;
+//   console.log(resData);
 
-  return toast.promise(asyncFunction, {
-    pending: {
-      render() {
-        return `${msgPrefix} in progress...`;
-      },
-      icon: <VscLoading />,
-    },
-    success: {
-      render({data}) {
-        resData = data;
-        console.log(data);
-        return data.data.status === "error" ? data.data.msg : `${msgPrefix} successful`;
-        // const message = data.response?.data;
-        // const message = "";
-        // if (typeof message === "string") {
-        //   res += `${message}`;
-        // }
-        // return res;
-      },
-      icon: resData?.data?.status === "error" ? <MdError /> : <GiCheckMark />,
-      type: resData?.data?.status === "error" ? "error" : "success",
-    },
+//   return toast.promise(asyncFunction, {
+//     pending: {
+//       render() {
+//         return `${msgPrefix} in progress...`;
+//       },
+//       icon: <VscLoading />,
+//     },
+//     success: {
+//       render({data}) {
+//         resData = data;
+//         console.log(data);
+//         return data.data.status === "error" ? data.data.msg : `${msgPrefix} successful`;
+//         // const message = data.response?.data;
+//         // const message = "";
+//         // if (typeof message === "string") {
+//         //   res += `${message}`;
+//         // }
+//         // return res;
+//       },
+//       icon: resData?.data?.status === "error" ? <MdError /> : <GiCheckMark />,
+//       type: resData?.data?.status === "error" ? "error" : "success",
+//     },
 
-    error: {
-      render({data}) {
-        // let res = `${msgPrefix} failed`;
-        let res = `Network error please try again or check your internet connection`;
-        const message = data.response?.data;
-        if (typeof message === "string") {
-          res += ` - ${message}`;
-        }
-        return res;
+//     error: {
+//       render({data}) {
+//         // let res = `${msgPrefix} failed`;
+//         let res = `Network error please try again or check your internet connection`;
+//         const message = data.response?.data;
+//         if (typeof message === "string") {
+//           res += ` - ${message}`;
+//         }
+//         return res;
+//       },
+//       icon: <MdError />,
+//     },
+//   });
+// };
+
+export const toastifyPromises = () => {
+  const postRequest = ({asyncFunction, pendingMsg, SuccessMsg}) => {
+    return toast.promise(asyncFunction, {
+      pending: {
+        render() {
+          return `${pendingMsg}`;
+        },
+        icon: <VscLoading />,
       },
-      icon: <MdError />,
-    },
-  });
+      success: {
+        render({data}) {
+          return data.data.status === "error" ? data.data.msg : `${SuccessMsg}`;
+        },
+      },
+    });
+  };
+
+
+  
+  return {
+    postRequest,
+  };
 };
-//   {
-//     "data": {
-//         "status": "error",
-//         "msg": "Invalid phone number. Phone number expects 11 digits"
-//     },
-//     "status": 200,
-//     "statusText": "OK",
-//     "headers": {
-//         "content-length": "79",
-//         "content-type": "application/json"
-//     },
-
-// }

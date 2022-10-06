@@ -13,12 +13,14 @@ export const useAuthApiServices = () => {
   const navigate = useNavigate();
   const {postLoading, setPostLoading} = useContext(LoadingContext);
   const {loginUserAction, logoutUserAction} = useContext(AuthContext);
+
   const loginUser = async (body) => {
     setPostLoading(true);
     const asyncFunction = axios.post(`https://users-service-microservices.api.lagosride.com/v1.1/auth/login`, body);
     const res = await toastifyPromises({asyncFunction, msgPrefix: "Login"});
+    console.log(res)
     if (res.data.status !== "error") {
-      loginUserAction(res.data.data);
+      await loginUserAction(res.data.data);
       window.location.replace("/");
     }
     setPostLoading(false);
