@@ -7,7 +7,7 @@ import PerformanceTable from "./components/performanceTable";
 import "../../../assets/scss/compliance.scss";
 import {useTripsApiServices} from "../../../services/tripsApiServices";
 
-const Performance = () => {
+const DriverPerformance = () => {
   const {getTodayCompliance} = useTripsApiServices();
   useEffect(() => {
     getTodayCompliance();
@@ -37,4 +37,4 @@ const Performance = () => {
   );
 };
 
-export default Performance;
+export default DriverPerformance;
