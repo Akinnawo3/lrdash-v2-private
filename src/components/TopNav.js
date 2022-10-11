@@ -15,7 +15,7 @@ const TopNav = ({title}) => {
   const [dropdownToggle, setDropdownToggle] = useState(false);
   const {expanded, toggle} = useContext(AppPrefrenceContext);
   return (
-    <div className={"sticky-top top-nav w-100 d-flex align-items-end justify-content-between px-2 pb-2"}>
+    <div className={"sticky-top  top-nav w-100 d-flex align-items-end justify-content-between px-2 pb-2"}>
       <div className="d-flex align-items-end  ">
         <div className="me-2 icons-box cursor-pointer sidebar-control d-md-none" onClick={toggle}>
           {expanded ? (

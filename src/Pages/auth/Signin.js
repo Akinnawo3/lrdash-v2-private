@@ -17,8 +17,8 @@ const Signin = (props) => {
     loginUser(body);
   };
   return (
-    <div>
-      <Card style={{width: 400}} className="bg-white px-4">
+    <div className="px-2 mt-5">
+      <Card style={{width: 370}} className="bg-white px-4">
         <h3 className="text-center my-3 fw-bold">SIGN IN</h3>
         <Form onSubmit={handleSubmit}>
           <FormGroup>

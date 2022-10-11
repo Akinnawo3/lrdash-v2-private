@@ -4,6 +4,7 @@ export let api;
 
 const useUrlComp = () => {
   const {auth} = useContext(AuthContext);
+  console.log(auth);
   const live = {
     bookingTypes: "https://taxitriptypebackend-microservices.api.lagosride.com",
     // classTypes: 'https://134.209.16.20:7090',

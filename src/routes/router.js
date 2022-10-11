@@ -9,9 +9,11 @@ import LoaderPage from "../components/LoaderPage";
 import InnerPages from "../Pages/ProtectedPages";
 import AuthLayout from "../components/layouts/AuthLayout";
 import ProtectedPages from "../Pages/ProtectedPages";
+import useUrlComp from "../constants/urls";
 // import AllModals from "../components/modals/AllModals";
 
 const RoutesCoponent = () => {
+  useUrlComp();
   return (
     <Router>
       <Suspense fallback={<LoaderPage size={100} type={"ThreeDots"} />}>

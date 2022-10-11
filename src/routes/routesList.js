@@ -17,17 +17,17 @@ const Performance = lazy(() => import("../Pages/others/performance/performance")
 export const authRoutes = [
   {path: "/signin", component: Signin, title: "Signin", leadText: ""},
 
-//   {path: "/signup", component: Signup, title: "Signup", leadText: "Create Account"},
-//   {path: "/registration-confirmation/", component: RegistrationConfirmation, title: "Signup", leadText: "Registration Confirmation"},
-//   {path: "/verify-email/", component: Verification, title: "verify-email", leadText: "Email Verification"},
-//   {path: "/forgot-password", component: ForgotPassword, title: "forgot-password", leadText: "Password Reset"},
-//   {path: "/reset-password", component: ResetPassword, title: "reset-password", leadText: "Password Reset"},
+  //   {path: "/signup", component: Signup, title: "Signup", leadText: "Create Account"},
+  //   {path: "/registration-confirmation/", component: RegistrationConfirmation, title: "Signup", leadText: "Registration Confirmation"},
+  //   {path: "/verify-email/", component: Verification, title: "verify-email", leadText: "Email Verification"},
+  //   {path: "/forgot-password", component: ForgotPassword, title: "forgot-password", leadText: "Password Reset"},
+  //   {path: "/reset-password", component: ResetPassword, title: "reset-password", leadText: "Password Reset"},
 ];
 
 export const userRoutes = [
   {path: "/", component: Home, title: "Home"},
   {path: "/finance", component: Finance, title: "Finance"},
-  {path: "/performance", component: Performance, title: "Compliance"},
+  {path: "/performance", component: Performance, title: "Performance"},
 ];
 
 // TODO: 404, 500

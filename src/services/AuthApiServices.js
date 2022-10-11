@@ -17,9 +17,8 @@ export const useAuthApiServices = () => {
   const loginUser = async (body) => {
     setPostLoading(true);
     const asyncFunction = axios.post(`https://users-service-microservices.api.lagosride.com/v1.1/auth/login`, body);
-    const res = await toastifyPromises({asyncFunction, msgPrefix: "Login"});
-    console.log(res)
-    if (res.data.status !== "error") {
+    const res = await toastifyPromises.post({asyncFunction, pendingMsg: "Login in", SuccessMsg: "Login Successful"});
+    if (res && res.data.status !== "error") {
       await loginUserAction(res.data.data);
       window.location.replace("/");
     }
@@ -30,7 +29,6 @@ export const useAuthApiServices = () => {
     logoutUserAction();
     navigate("/signin");
   };
-
   return {
     loginUser,
     logoutUser,

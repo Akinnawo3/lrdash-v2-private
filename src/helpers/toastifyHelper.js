@@ -1,13 +1,10 @@
 import {toast} from "react-toastify";
-import {GiCheckMark} from "react-icons/gi";
-import {MdError} from "react-icons/md";
-import {VscLoading} from "react-icons/vsc";
 
 export const toastify = ({type, icon, message}) =>
   toast(message, {
     type: type,
     icon: icon ? icon : "false",
-    position: "top-center",
+    position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -16,68 +13,42 @@ export const toastify = ({type, icon, message}) =>
     progress: undefined,
   });
 
-// export const toastifyPromises = ({asyncFunction, msgPrefix}) => {
-//   let resData;
-//   console.log(resData);
+const getRequest = async ({asyncFunction}) => {
+  const id = "req_id";
+  try {
+    const res = await asyncFunction;
+    if (res.data.status === "error") {
+      toast.update(id, {render: res.data.msg, type: "error", isLoading: false, autoClose: 2000});
+      // setTimeout(toast.dismiss(), 2000);
+      toast.dismiss(id);
+    }
+    return res;
+  } catch (err) {
+    toast.update(id, {render: "Network error", type: "error", isLoading: false});
+    return;
+  }
+};
+const otherReq = async ({asyncFunction, pendingMsg, SuccessMsg}) => {
+  const id = toast.loading(pendingMsg);
+  try {
+    const res = await asyncFunction;
+    if (res.data.status === "error") {
+      toast.update(id, {render: res.data.msg, type: "error", isLoading: false, autoClose: 2000});
+      // setTimeout(toast.dismiss(), 2000);
+      toast.dismiss(id);
+    } else {
+      toast.update(id, {render: SuccessMsg, type: "success", isLoading: false});
+    }
+    return res;
+  } catch (err) {
+    toast.update(id, {render: "Network error", type: "error", isLoading: false});
+    return;
+  }
+};
 
-//   return toast.promise(asyncFunction, {
-//     pending: {
-//       render() {
-//         return `${msgPrefix} in progress...`;
-//       },
-//       icon: <VscLoading />,
-//     },
-//     success: {
-//       render({data}) {
-//         resData = data;
-//         console.log(data);
-//         return data.data.status === "error" ? data.data.msg : `${msgPrefix} successful`;
-//         // const message = data.response?.data;
-//         // const message = "";
-//         // if (typeof message === "string") {
-//         //   res += `${message}`;
-//         // }
-//         // return res;
-//       },
-//       icon: resData?.data?.status === "error" ? <MdError /> : <GiCheckMark />,
-//       type: resData?.data?.status === "error" ? "error" : "success",
-//     },
-
-//     error: {
-//       render({data}) {
-//         // let res = `${msgPrefix} failed`;
-//         let res = `Network error please try again or check your internet connection`;
-//         const message = data.response?.data;
-//         if (typeof message === "string") {
-//           res += ` - ${message}`;
-//         }
-//         return res;
-//       },
-//       icon: <MdError />,
-//     },
-//   });
-// };
-
-export const toastifyPromises = () => {
-  const postRequest = ({asyncFunction, pendingMsg, SuccessMsg}) => {
-    return toast.promise(asyncFunction, {
-      pending: {
-        render() {
-          return `${pendingMsg}`;
-        },
-        icon: <VscLoading />,
-      },
-      success: {
-        render({data}) {
-          return data.data.status === "error" ? data.data.msg : `${SuccessMsg}`;
-        },
-      },
-    });
-  };
-
-
-  
-  return {
-    postRequest,
-  };
+export const toastifyPromises = {
+  get: getRequest,
+  post: otherReq,
+  put: otherReq,
+  delete: otherReq,
 };
