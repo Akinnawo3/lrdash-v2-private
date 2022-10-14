@@ -13,7 +13,7 @@ const Home = lazy(() => import("../Pages/others/home/home"));
 const Finance = lazy(() => import("../Pages/others/finance.js/finance"));
 //perfornmance
 const BusinessPerformance = lazy(() => import("../Pages/others/performance/BusinessPerformance"));
-const DriverPerformance = lazy(() => import("../Pages/others/performance/driverperformance"));
+const DriverPerformance = lazy(() => import("../Pages/others/performance/DriverPerformance"));
 
 export const authRoutes = [
   {path: "/signin", component: Signin, title: "Signin", leadText: ""},

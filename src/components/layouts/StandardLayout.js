@@ -13,7 +13,7 @@ const StandardLayout = ({children, title}) => {
       <SideBar />
       <div className="page-body w-100 position-relative">
         <TopNav title={title}/>
-        <div className="container" >{children}</div>
+        <div className="container-fluid" >{children}</div>
         {expanded && <div className="position-absolute h-100 w-100 top-0 start-0 pages-overlay d-md-none" onClick={toggle}></div>}
       </div>
     </div>

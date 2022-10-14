@@ -3,7 +3,7 @@
 .sidebar {
   position: fixed;
   top: 0px;
-  width: 210px;
+  width: 230px;
   height: 100%;
   background: $grey-color;
 }
@@ -45,7 +45,7 @@
   //   padding: 0.75rem 1rem !important;
   padding: 8px 10px !important;
 
-  width: 70% !important;
+  width: 80% !important;
   margin: 10px 20px;
 }
 // .side-navigation-panel .side-navigation-panel-select .side-navigation-panel-select-wrap .side-navigation-panel-select-option {
@@ -97,7 +97,7 @@
   color: rgba(31, 41, 55, var(--tw-text-opacity));
   border-color: transparent !important;
   color: white !important;
-  padding: 8px 10px !important;
+  // padding: 8px 10px !important;
   border-radius: 5px;
 }
 

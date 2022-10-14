@@ -14,12 +14,10 @@ const SideBar = () => {
 
   const menuItems = [
     {title: "Dashboard", icon: <TiThLargeOutline />, link: "/"},
-    {title: "Performance", icon: <TiChartBarOutline />, link: "/performance"},
-    {title: "Finance", icon: <TiChartBarOutline />, link: "/finance"},
     {
-      title: "Drivers",
-      icon: <TiThLargeOutline />,
-      link: null,
+      title: "Performance",
+      icon: <TiChartBarOutline />,
+      link: "performa..",
       subNavs: [
         {
           title: "Pending",
@@ -31,8 +29,23 @@ const SideBar = () => {
         },
       ],
     },
+    {title: "Finance", icon: <TiChartBarOutline />, link: "/finance"},
+    {
+      title: "Drivers",
+      icon: <TiThLargeOutline />,
+      link: "drivers",
+      subNavs: [
+        {
+          title: "Pending",
+          link: "/performance/business",
+        },
+        {
+          title: "Active",
+          link: "/performance/driver",
+        },
+      ],
+    },
   ];
-  console.log(expanded);
   return (
     <div className={`sidebar ${expanded && "expanded"}`}>
       <div className="mt-4 mb-5 d-flex justify-content-center">
@@ -45,8 +58,8 @@ const SideBar = () => {
         activeItemId="/"
         onSelect={({itemId}) => {
           // maybe push to the route
-          itemId && navigate(itemId);
-          itemId && setExpanded(false);
+          itemId.includes("/") && navigate(itemId);
+          itemId.includes("/") && setExpanded(false);
         }}
         items={
           menuItems.map((item) => ({
