@@ -7,7 +7,7 @@ import {AppPrefrenceContext} from "../contexts/AppPrefrenceContext";
 import {GiCrossMark} from "react-icons/gi";
 import {IoMdLogOut} from "react-icons/io";
 import {Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
-import {useAuthApiServices} from "../services/authApiServices";
+import {useAuthApiServices} from "../services/AuthApiServices";
 import {confirmDialogue} from "../helpers/confirmationDialogue";
 
 const TopNav = ({title}) => {

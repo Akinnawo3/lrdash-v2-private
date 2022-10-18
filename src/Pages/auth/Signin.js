@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
 import {Form, Card, CardHeader, FormGroup, Input, Label, Button, InputGroup, InputGroupText} from "reactstrap";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
-import {useAuthApiServices} from "../../services/authApiServices.js";
+import {useAuthApiServices} from "../../services/AuthApiServices";
 import {LoadingContext} from "../../contexts/LoadingContext.js";
 
 const Signin = (props) => {

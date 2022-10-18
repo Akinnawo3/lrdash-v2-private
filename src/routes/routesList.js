@@ -8,7 +8,7 @@ const RegistrationConfirmation = lazy(() => import("../Pages/auth/RegistrationCo
 const ResetPassword = lazy(() => import("../Pages/auth/ResetPassword"));
 
 //Overview
-const Home = lazy(() => import("../Pages/others/home/home"));
+const Home = lazy(() => import("../Pages/others/home/Home"));
 //finance
 const Finance = lazy(() => import("../Pages/others/finance.js/finance"));
 //perfornmance
