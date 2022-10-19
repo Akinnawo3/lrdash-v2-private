@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import Chart from "chart.js/auto";
 
 const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   // const [startDate, setStartDate] = useState(getFirstDayOfMonth());
   // const [endDate, setEndDate] = useState(getTodayDate());
-  const [dateType, setDateType] = useState("monthly");
-
+  const [dateType, setDateType] = useState("This week");
+  const [toggled, setToggled] = useState(false);
+  const handleToggle = () => {
+    setToggled(!toggled);
+  };
   const handleDateTypeChange = (type) => setDateType(type)
   const options = {
     scales: {
@@ -71,13 +74,13 @@ const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => 
           <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
 
             <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
-              This week
+              {dateType}
             </DropdownToggle>
             <DropdownMenu>
-              {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This year")}>This week</DropdownItem>}
+              {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This week")}>This week</DropdownItem>}
               {dateType !== "This month" && <DropdownItem onClick={() => handleDateTypeChange("This month")}>This month</DropdownItem>}
-              {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Today</DropdownItem>}
-              {dateType !== "All" && <DropdownItem onClick={() => handleDateTypeChange("All")}>All</DropdownItem>}
+              {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Last 6 months</DropdownItem>}
+              {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
             </DropdownMenu>
           </Dropdown>
         </div>

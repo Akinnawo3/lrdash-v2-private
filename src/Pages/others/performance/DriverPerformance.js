@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "reactstrap";
-import DougnutProjection from "./components/doughnutRevenue";
+import DougnutProjection from "./components/businessPerformance/doughnutRevenue";
 
 import TopFive from "./components/topFive";
 import PerformanceTable from "./components/performanceTable";
