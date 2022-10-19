@@ -1,14 +1,14 @@
-import React, {useEffect} from "react";
-import {Col, Row} from "reactstrap";
-import DougnutProjection from "./components/doughnut";
-import DailyTripsGraph from "./components/dailyTripsGraph";
+import React, { useEffect } from "react";
+import { Col, Row } from "reactstrap";
+import DougnutProjection from "./components/doughnutRevenue";
+
 import TopFive from "./components/topFive";
 import PerformanceTable from "./components/performanceTable";
 import "../../../assets/scss/compliance.scss";
-import {useTripsApiServices} from "../../../services/tripsApiServices";
+import { useTripsApiServices } from "../../../services/tripsApiServices";
 
 const DriverPerformance = () => {
-  const {getTodayCompliance} = useTripsApiServices();
+  const { getTodayCompliance } = useTripsApiServices();
   useEffect(() => {
     getTodayCompliance();
   }, []);
@@ -22,7 +22,7 @@ const DriverPerformance = () => {
               <DougnutProjection />
             </Col>
             <Col md={12} lg={8} className="mt-3">
-              <DailyTripsGraph />
+
             </Col>
             <Col className="mt-3">
               <PerformanceTable />

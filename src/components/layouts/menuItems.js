@@ -4,7 +4,7 @@ import { TiChartBarOutline } from "react-icons/ti";
 export const menuItems = [
     { title: "Dashboard", icon: <TiThLargeOutline />, link: "/" },
     {
-        title: "Prformance",
+        title: "Performance",
         icon: <TiChartBarOutline />,
         link: "performa..",
         subNavs: [

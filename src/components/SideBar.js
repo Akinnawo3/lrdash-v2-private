@@ -16,7 +16,7 @@ const SideBar = () => {
     <div className={`sidebar ${expanded && "expanded"}`}>
       <div className="mt-4 mb-5 d-flex justify-content-center">
         <Link to="/">
-          <img className="" alt="logo" src="images/logo.png" width={150} />
+          <img className="" alt="logo" src="/images/logo.png" width={150} />
         </Link>
       </div>
       <Navigation

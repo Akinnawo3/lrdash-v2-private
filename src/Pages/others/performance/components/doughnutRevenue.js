@@ -1,9 +1,9 @@
-import React, {useContext, useState, useEffect} from "react";
-import {Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle} from "reactstrap";
-import {Doughnut} from "react-chartjs-2";
+import React, { useContext, useState, useEffect } from "react";
+import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from "reactstrap";
+import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-const DougnutProjection = ({maxHeight, cutout}) => {
+const DoughnutRevenue = ({ maxHeight, cutout }) => {
   const labels = [
     {
       title: "Concurrent amount",
@@ -60,7 +60,7 @@ const DougnutProjection = ({maxHeight, cutout}) => {
   //   },
   // };
   const options = {
-    cutout: 62,
+    cutout: 75,
     plugins: {
       legend: {
         labels: {
@@ -122,30 +122,32 @@ const DougnutProjection = ({maxHeight, cutout}) => {
   // };
 
   return (
-    <Card body style={{height: 278}}>
+    <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span>Projection covered</span>
+          <span className="fw-bold">Revenue</span>
+          <span className="text-muted">Today</span>
         </div>
         {/* <span>Today</span> */}
       </CardTitle>
       {/* <CardBody className=""> */}
-      <div style={{width: "150px", height: "150px", position: "relative"}} className="mx-auto">
-        <Doughnut data={data} options={options} width={60} height={60} />
+      <div style={{ width: "180px", height: "180px", position: "relative" }} className="mx-auto">
+        <Doughnut data={data} options={options} width={70} height={70} />
         {/* <Doughnut data={data} options={options} width={200} height={250} /> */}
-        <div style={{position: "absolute", width: "100%", top: "53%", left: 0, textAlign: "center", marginTop: "-28px", lineHeight: "20px"}}>
-          <h2 className="mb-0">{total}</h2>
+        <div style={{ position: "absolute", width: "100%", top: "50%", left: 0, textAlign: "center", marginTop: "-28px", lineHeight: "20px" }}>
+          <h2 className="mb-0 fw-bold">{total}</h2>
+          <small className="gradient-text fw-bold">+34%</small>
         </div>
         {/* <div style={{position: "absolute", width: "100%", top: "90%", left: 0, textAlign: "center", marginTop: "-28px", lineHeight: "20px"}}>
           <h2 className="mb-0">{total}</h2>
         </div> */}
       </div>
-      <div className="my-3 fw-bold text-center gradient-text">19.6m/28m</div>
+      <div className="my-3 fw-bold text-center text-muted"><span className="gradient-text">19.6m</span>/28m</div>
       {/* </CardBody> */}
     </Card>
   );
 };
 
-export default DougnutProjection;
+export default DoughnutRevenue;
 
 // "react-chartjs-2": "^2.9.0",

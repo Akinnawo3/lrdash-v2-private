@@ -43,7 +43,7 @@ const TopNav = ({title}) => {
           <MdNotificationsNone />
         </span>
         <span className="icons-box cursor-pointer border border-info b-3 me-2">
-          <img alt="avatar " src="images/avatar.png" height={23} width={20} />
+          <img alt="avatar " src="/images/avatar.png" height={23} width={20} />
         </span>
         <span className="">
           <Dropdown isOpen={dropdownToggle} toggle={() => setDropdownToggle(!dropdownToggle)}>
