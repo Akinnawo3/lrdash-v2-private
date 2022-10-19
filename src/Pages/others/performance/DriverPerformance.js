@@ -16,7 +16,7 @@ const DriverPerformance = () => {
   return (
     <div className="table-wrapper mb-3">
       <Row>
-        <Col md={7} lg={8}>
+        <Col md={7} lg={9}>
           <Row>
             <Col md={12} lg={4} className="mt-3">
               <DoughnutDriversPerformance />
@@ -29,7 +29,7 @@ const DriverPerformance = () => {
             </Col>
           </Row>
         </Col>
-        <Col md={5} lg={4} className="mt-3">
+        <Col md={5} lg={3} className="mt-3">
           <TopFive />
         </Col>
       </Row>
