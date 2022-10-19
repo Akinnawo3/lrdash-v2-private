@@ -10,7 +10,7 @@ const TopFive = ({loading, getDownloadsByDate, downloadsByDate}) => {
             <div className="d-flex align-items-center justify-content-between my-3">
               <div>
                 <span>
-                  <img alt="thumbnail" src="/images/avatar.png" height={25} width={22} className="rounded-circle" />
+                  <img alt="thumbnail" src="images/avatar.png" height={25} width={22} className="rounded-circle" />
                 </span>
                 <small className="ms-2">Brooklyn Simmons</small>
               </div>

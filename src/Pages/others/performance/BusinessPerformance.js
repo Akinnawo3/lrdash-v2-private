@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { Col, Row } from "reactstrap";
+import { Card, Col, Row } from "reactstrap";
 import DougnutProjection from "./components/businessPerformance/doughnutRevenue";
 import DailyTripsGraph from "./components/businessPerformance/revenueTrendGraph.js.js";
-import TopFive from "./components/topFive";
-import PerformanceTable from "./components/performanceTable";
+import TopFive from "./components/driversPerformance/topFive";
+import PerformanceTable from "./components/driversPerformance/performanceTable";
 import "../../../assets/scss/compliance.scss";
 import { useTripsApiServices } from "../../../services/tripsApiServices";
 import RevenueTrendGraph from "./components/businessPerformance/revenueTrendGraph.js.js";
+import PerformanceTripsChart from "./components/businessPerformance/performanceTripsChart";
+import PerformanceActiveVehiclesChart from "./components/businessPerformance/performanceActiveVehiclesChart";
 
 const BusinessPerformance = () => {
   const { getTodayCompliance } = useTripsApiServices();
@@ -27,14 +29,16 @@ const BusinessPerformance = () => {
             </Col>
             <Col className="mt-3">
               <Row>
-                <Col md={6}></Col>
-                <Col md={6}></Col>
+                <Col md={6}><PerformanceTripsChart /></Col>
+                <Col md={6}><PerformanceActiveVehiclesChart /></Col>
               </Row>
             </Col>
           </Row>
         </Col>
-        <Col md={5} lg={3} className="mt-3 h-100">
-          <TopFive />
+        <Col md={5} lg={3} className="mt-3 vh-90">
+          <Card body className="h-100">
+
+          </Card>
         </Col>
       </Row>
     </div>

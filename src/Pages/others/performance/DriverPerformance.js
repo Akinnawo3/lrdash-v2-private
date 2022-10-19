@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "reactstrap";
-import DougnutProjection from "./components/businessPerformance/doughnutRevenue";
 
-import TopFive from "./components/topFive";
-import PerformanceTable from "./components/performanceTable";
+import TopFive from "./components/driversPerformance/topFive";
+import PerformanceTable from "./components/driversPerformance/performanceTable";
 import "../../../assets/scss/compliance.scss";
 import { useTripsApiServices } from "../../../services/tripsApiServices";
+import DoughnutDriversPerformance from "./components/driversPerformance/doughnutDriversPerformance";
 
 const DriverPerformance = () => {
   const { getTodayCompliance } = useTripsApiServices();
@@ -19,7 +19,7 @@ const DriverPerformance = () => {
         <Col md={7} lg={8}>
           <Row>
             <Col md={12} lg={4} className="mt-3">
-              <DougnutProjection />
+              <DoughnutDriversPerformance />
             </Col>
             <Col md={12} lg={8} className="mt-3">
 

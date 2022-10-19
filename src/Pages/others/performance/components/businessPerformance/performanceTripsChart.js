@@ -44,6 +44,7 @@ const PerformanceTripsChart = ({ loading, getDownloadsByDate, downloadsByDate })
   };
   const data = {
     labels: ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"],
+    
 
     datasets: [
       {
@@ -52,7 +53,7 @@ const PerformanceTripsChart = ({ loading, getDownloadsByDate, downloadsByDate })
         // fill: true,
         // backgroundColor: "rgba(75,192,192,0.2)",
         borderWidth: 1,
-        borderColor: "#03C2FE",
+        borderColor: "#FE9603",
         pointRadius: 0,
         // hoverBorderJoinStyle: "miter",
       },
@@ -66,10 +67,10 @@ const PerformanceTripsChart = ({ loading, getDownloadsByDate, downloadsByDate })
     ],
   };
   return (
-    <Card body style={{ height: 335 }}>
+    <Card body style={{ height: 280 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span className="fw-bold">Revenue Trend</span>
+          <span className="fw-bold">Trips</span>
 
           <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
 
