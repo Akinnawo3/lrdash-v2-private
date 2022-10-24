@@ -37,20 +37,36 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
 
     datasets: [
       {
-        label: "Attendance for Week 1",
+        label: "Best",
         clip: 15,
-        data: [35, 70],
+        data: [35, 70, 50, 45],
         borderColor: ["rgba(255,206,86,0.2)"],
-        backgroundColor: ["rgb(227,233,235)", "rgb(1,199,171)"],
+        backgroundColor: ["#00D2A8", "#FE9603", "#03C2FE", "#FF3739"],
         // borderColor: ["grey", "rgb(8,110,185)", "rgb(252,185,11)", "rgb(41,198,149)", "red"],
         pointBackgroundColor: "rgba(255,206,86,0.2)",
         borderJoinStyle: "round",
+
+        spacing: -20,
+        borderAlign: "center",
         borderRadius: [
+
           {
-            outerStart: -5, //negative margin didint work. look for solution
-            outerEnd: -5,
-            innerStart: -8,
-            innerEnd: -5,
+            outerStart: 8,
+            outerEnd: 8,
+            innerStart: 8,
+            innerEnd: 8,
+          },
+          {
+            outerStart: 8,
+            outerEnd: 8,
+            innerStart: 8,
+            innerEnd: 8,
+          },
+          {
+            outerStart: 8,
+            outerEnd: 8,
+            innerStart: 8,
+            innerEnd: 8,
           },
           {
             outerStart: 8,
@@ -75,7 +91,7 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   //   },
   // };
   const options = {
-    cutout: 63,
+    cutout: 66,
     plugins: {
       legend: {
         labels: {
@@ -143,7 +159,8 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
           <span className="fw-bold">Perf</span>
 
           <span>
-            <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
+
+            <Dropdown direction="top" className="d-inline me-1" isOpen={toggled} toggle={handleToggle}>
 
               <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
                 {dateType}
@@ -155,15 +172,15 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
                 {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
               </DropdownMenu>
             </Dropdown>
-            <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
+            <Dropdown direction="top" className="d-inline" isOpen={perfToggled} toggle={handlePerfToggle}>
 
               <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
-                {dateType}
+                {perfType}
               </DropdownToggle>
               <DropdownMenu>
-                {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This week")}>This week</DropdownItem>}
-                {dateType !== "This month" && <DropdownItem onClick={() => handleDateTypeChange("This month")}>This month</DropdownItem>}
-                {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Last 6 months</DropdownItem>}
+                {dateType !== "Overall Perf." && <DropdownItem onClick={(e) => handlePerfTypeTypeChange("This week")}>Overall Perf.</DropdownItem>}
+                {dateType !== "Service Perf." && <DropdownItem onClick={() => handlePerfTypeTypeChange("This month")}>Service Perf.</DropdownItem>}
+                {dateType !== "Compliance Perf" && <DropdownItem onClick={() => handlePerfTypeTypeChange("Last 6 months")}>Compliance Perf.</DropdownItem>}
                 {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
               </DropdownMenu>
             </Dropdown>
@@ -184,7 +201,29 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
           <h2 className="mb-0">{total}</h2>
         </div> */}
       </div>
-      <div className="my-3 fw-bold text-center text-muted"><span className="gradient-text">19.6m</span>/28m</div>
+      <div className="my-3 text-muted mx-4 mb-2">
+        <div className="d-flex">
+          <div className="w-50">
+            <div className="text-green">Best</div>
+            <div>60%</div>
+          </div>
+          <div className="w-50 ms-4">
+            <div className="text-blue">Above Av.</div>
+            <div>20%</div>
+          </div>
+        </div>
+        <div className="d-flex mt-2 ">
+          <div className="w-50">
+            <div className="text-orange">Below Av.</div>
+            <div>10%</div>
+          </div>
+          <div className="ms-4 w-50">
+            <div className="text-red ">Poor</div>
+            <div>10%</div>
+          </div>
+        </div>
+
+      </div>
       {/* </CardBody> */}
     </Card>
   );

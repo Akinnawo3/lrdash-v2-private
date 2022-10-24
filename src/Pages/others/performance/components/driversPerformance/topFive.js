@@ -21,8 +21,8 @@ const TopFive = ({loading, getDownloadsByDate, downloadsByDate}) => {
           ))}
         </div>
         <hr className="my-2" />
-        <h3 className="mt-3">Gender compliance</h3>
-        <div className="mt-2">
+        {/* <h3 className="mt-3">Gender compliance</h3> */}
+        {/* <div className="mt-2">
           <div className="d-flex align-items-center">
             <progress id="male-progress" value="62" max="100" className="w-100">
               62%
@@ -58,7 +58,7 @@ const TopFive = ({loading, getDownloadsByDate, downloadsByDate}) => {
               <span>Female</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </CardTitle>
     </Card>
   );

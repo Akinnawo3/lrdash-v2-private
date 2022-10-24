@@ -51,7 +51,7 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
         data: [5, 1, 2, 6, 5, 13, 11],
         // fill: true,
         // backgroundColor: "rgba(75,192,192,0.2)",
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: "#00D2A8",
         pointRadius: 0,
         // hoverBorderJoinStyle: "miter",

@@ -1,32 +1,25 @@
-import {TableCell, TableRow, TableBody, TableHead} from "@material-ui/core";
+import { TableCell, TableRow, TableBody, TableHead } from "@material-ui/core";
 // import {TableCell, TableRow,TableBody,TableHead} from "reactstrap";
-import React, {Fragment, useEffect, useState} from "react";
-import {BsFileEarmarkArrowUp} from "react-icons/bs";
+import React, { Fragment, useEffect, useState } from "react";
+import { BsFileEarmarkArrowUp } from "react-icons/bs";
 
-import {Card, CardTitle, Table} from "reactstrap";
+import { Card, CardTitle, Table } from "reactstrap";
+import { ExportSvg, FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
+import { performancePercentageColor } from "../../../../../helpers/colorsHelper";
 
-const PerformanceTable = ({loading, getDownloadsByDate, downloadsByDate}) => {
+const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   return (
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span>Showing 24 riders</span>
+
+
+
+
           <div className="cursor-pointer">
-            <svg width="64" height="19" viewBox="0 0 64 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.6665 13.0098L6.6665 9.00977L5.33317 10.3431" stroke="#225765" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M6.66667 9.00944L8 10.3428" stroke="#225765" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M15.3333 8.34212V11.6755C15.3333 15.0088 14 16.3421 10.6667 16.3421H6.66667C3.33333 16.3421 2 15.0088 2 11.6755V7.67546C2 4.34212 3.33333 3.00879 6.66667 3.00879H10"
-                stroke="#225765"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path d="M15.3333 8.34212H12.6667C10.6667 8.34212 10 7.67546 10 5.67546V3.00879L15.3333 8.34212Z" stroke="#225765" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M21.8705 14.6758V4.80578H28.2545V5.86978H23.1305V9.13178H27.9325V10.1958H23.1305V13.6118H28.2545V14.6758H21.8705ZM29.0083 14.6758L32.2003 10.7278V11.3578L29.1903 7.63378H30.7163L32.9143 10.4478H32.4523L34.6503 7.63378H36.1623L33.1943 11.3298V10.7558L36.3443 14.6758H34.8043L32.4523 11.6658H32.9143L30.5343 14.6758H29.0083ZM37.5215 17.6998V9.29978C37.5215 9.02911 37.5122 8.75378 37.4935 8.47378C37.4749 8.19378 37.4469 7.91378 37.4095 7.63378H38.6415L38.7955 9.25778H38.6415C38.7815 8.71645 39.0802 8.29178 39.5375 7.98378C39.9949 7.66645 40.5409 7.50778 41.1755 7.50778C41.8009 7.50778 42.3469 7.65245 42.8135 7.94178C43.2802 8.23111 43.6395 8.65111 43.8915 9.20178C44.1529 9.74311 44.2835 10.3918 44.2835 11.1478C44.2835 11.9038 44.1529 12.5571 43.8915 13.1078C43.6395 13.6584 43.2802 14.0784 42.8135 14.3678C42.3469 14.6571 41.8009 14.8018 41.1755 14.8018C40.5502 14.8018 40.0089 14.6478 39.5515 14.3398C39.1035 14.0224 38.8002 13.5978 38.6415 13.0658H38.7955V17.6998H37.5215ZM40.8815 13.7938C41.5255 13.7938 42.0389 13.5698 42.4215 13.1218C42.8042 12.6738 42.9955 12.0158 42.9955 11.1478C42.9955 10.2798 42.8042 9.62645 42.4215 9.18778C42.0389 8.74911 41.5255 8.52978 40.8815 8.52978C40.2375 8.52978 39.7242 8.74911 39.3415 9.18778C38.9682 9.62645 38.7815 10.2798 38.7815 11.1478C38.7815 12.0158 38.9682 12.6738 39.3415 13.1218C39.7242 13.5698 40.2375 13.7938 40.8815 13.7938ZM48.9661 14.8018C48.2754 14.8018 47.6781 14.6571 47.1741 14.3678C46.6701 14.0691 46.2781 13.6491 45.9981 13.1078C45.7181 12.5571 45.5781 11.9038 45.5781 11.1478C45.5781 10.4011 45.7181 9.75711 45.9981 9.21578C46.2781 8.66511 46.6701 8.24511 47.1741 7.95578C47.6781 7.65711 48.2754 7.50778 48.9661 7.50778C49.6567 7.50778 50.2541 7.65711 50.7581 7.95578C51.2714 8.24511 51.6634 8.66511 51.9341 9.21578C52.2141 9.75711 52.3541 10.4011 52.3541 11.1478C52.3541 11.9038 52.2141 12.5571 51.9341 13.1078C51.6634 13.6491 51.2714 14.0691 50.7581 14.3678C50.2541 14.6571 49.6567 14.8018 48.9661 14.8018ZM48.9661 13.7938C49.6007 13.7938 50.1094 13.5698 50.4921 13.1218C50.8747 12.6738 51.0661 12.0158 51.0661 11.1478C51.0661 10.2798 50.8747 9.62645 50.4921 9.18778C50.1094 8.74911 49.6007 8.52978 48.9661 8.52978C48.3221 8.52978 47.8087 8.74911 47.4261 9.18778C47.0527 9.62645 46.8661 10.2798 46.8661 11.1478C46.8661 12.0158 47.0527 12.6738 47.4261 13.1218C47.8087 13.5698 48.3221 13.7938 48.9661 13.7938ZM54.0505 14.6758V9.35578C54.0505 9.07578 54.0412 8.79111 54.0225 8.50178C54.0132 8.20311 53.9898 7.91378 53.9525 7.63378H55.1845L55.3385 9.39778L55.1285 9.41178C55.2218 8.98245 55.3805 8.62778 55.6045 8.34778C55.8378 8.05845 56.1132 7.84845 56.4305 7.71778C56.7572 7.57778 57.0932 7.50778 57.4385 7.50778C57.5878 7.50778 57.7138 7.51245 57.8165 7.52178C57.9192 7.53111 58.0218 7.55445 58.1245 7.59178L58.0965 8.72578C57.9565 8.66978 57.8258 8.63711 57.7045 8.62778C57.5925 8.60911 57.4525 8.59978 57.2845 8.59978C56.8738 8.59978 56.5192 8.69311 56.2205 8.87978C55.9312 9.06645 55.7072 9.31378 55.5485 9.62178C55.3992 9.92978 55.3245 10.2611 55.3245 10.6158V14.6758H54.0505ZM62.2609 14.8018C61.5236 14.8018 60.9636 14.6011 60.5809 14.1998C60.2076 13.7891 60.0209 13.1731 60.0209 12.3518V8.61378H58.6489V7.63378H60.0209V5.74378L61.2949 5.39378V7.63378H63.2829V8.61378H61.2949V12.2398C61.2949 12.7811 61.3883 13.1684 61.5749 13.4018C61.7709 13.6258 62.0509 13.7378 62.4149 13.7378C62.6016 13.7378 62.7603 13.7238 62.8909 13.6958C63.0309 13.6584 63.1569 13.6164 63.2689 13.5698V14.6198C63.1289 14.6758 62.9656 14.7178 62.7789 14.7458C62.6016 14.7831 62.4289 14.8018 62.2609 14.8018Z"
-                fill="#082E38"
-              />
-            </svg>
+            <FilterSvg />
+            <ExportSvg />
           </div>
         </div>
         {/* <span>Today</span> */}
@@ -35,22 +28,26 @@ const PerformanceTable = ({loading, getDownloadsByDate, downloadsByDate}) => {
         <Table striped responsive>
           <thead className="fw-normal">
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th> Name</th>
               <th>Phone No</th>
-              <th>% Performance</th>
+              <th>Service</th>
+              <th>Compliance</th>
+              <th>Overall</th>
             </tr>
           </thead>
           <tbody>
-            {Array.from({length: 6}).map((item, index) => (
+            {Array.from({ length: 6 }).map((item, index) => (
               <tr key={index}>
                 <td>
-                  <img alt="thumbnail" src="images/avatar.png" height={25} width={22} className="rounded-circle me-1" />
-                  Joanna
+                  <span className="">
+                    <img alt="thumbnail" src="/images/avatar.png" height={25} width={22} className="rounded-circle me-1" />
+                  </span>
+                  Joanna Lane
                 </td>
-                <td>Lane</td>
                 <td>070 3397 6621 </td>
                 <td>80%</td>
+                <td>80%</td>
+                <td className={`text-${performancePercentageColor(Math.floor(Math.random() * 10)*10)}`}>{Math.floor(Math.random() * 10)*10}%</td>
               </tr>
             ))}
           </tbody>
