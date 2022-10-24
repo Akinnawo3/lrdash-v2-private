@@ -11,16 +11,7 @@ const DoughnutRevenue = ({ maxHeight, cutout }) => {
     setToggled(!toggled);
   };
   const handleDateTypeChange = (type) => setDateType(type)
-  const labels = [
-    {
-      title: "Concurrent amount",
-      color: "rgb(8,110,185)",
-    },
-    {
-      title: "Projection",
-      color: "grey",
-    },
-  ];
+
 
   const total = "70%";
 
