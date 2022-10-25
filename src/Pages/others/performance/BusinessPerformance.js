@@ -9,6 +9,7 @@ import { useTripsApiServices } from "../../../services/tripsApiServices";
 import RevenueTrendGraph from "./components/businessPerformance/revenueTrendGraph.js.js";
 import PerformanceTripsChart from "./components/businessPerformance/performanceTripsChart";
 import PerformanceActiveVehiclesChart from "./components/businessPerformance/performanceActiveVehiclesChart";
+import BlankCard from "../../../components/BlankCard";
 
 const BusinessPerformance = () => {
   const { getTodayCompliance } = useTripsApiServices();
@@ -36,9 +37,7 @@ const BusinessPerformance = () => {
           </Row>
         </Col>
         <Col md={5} lg={3} className="mt-3 vh-90">
-          <Card body className="h-100">
-
-          </Card>
+          <BlankCard />
         </Col>
       </Row>
     </div>

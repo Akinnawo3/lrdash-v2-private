@@ -20,6 +20,7 @@ export const menuItems = [
             {
                 title: "Watch List",
                 link: "/performance/watchlist",
+               
             },
         ],
     },

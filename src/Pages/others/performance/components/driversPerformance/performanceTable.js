@@ -36,7 +36,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
             </tr>
           </thead>
           <tbody>
-            {Array.from({ length: 6 }).map((item, index) => (
+            {Array.from({ length: 12}).map((item, index) => (
               <tr key={index}>
                 <td>
                   <span className="">

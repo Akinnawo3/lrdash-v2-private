@@ -4,6 +4,7 @@ import "../../../../../assets/scss/driver-details.scss"
 import { BsFillStarFill } from "react-icons/bs"
 import { FaChevronDown } from "react-icons/fa"
 import DriverTripsChart from './DriverTripsChart'
+import RatingsWidget from './RatingsWidget'
 
 const DriverDetails = () => {
 
@@ -153,30 +154,40 @@ const DriverDetails = () => {
                     </div>
                     <hr className='my-4' />
                     <div className='mt-3'>
-                        <div className='fw-bold d-flex justify-content-between'>
-                            <span> Trips</span>
-                            <span className='gradient-text fw-normal cursor-pointer'>See Trips</span>
+                        <RatingsWidget />
+                    </div>
+                    <hr className='my-4' />
+                    <div className='mt-3'>
+                        <div className='fw-bold text-nowrap d-flex justify-content-between'>
+                            <div>Vehicle QR code reviews</div>
+                            <div className='gradient-text fw-normal cursor-pointer'> See all</div>
+                        </div>
+                        <small className='mt-4'>5 reviews</small>
+                        <div className='my-3'>
+                            <small className='text-muted'>
+                                Date
+                            </small>
+                            <div>
+                                23rd Aug. 2022, 11:01 am
+                            </div>
                         </div>
                         <div className='my-3'>
-                            <div className='d-flex mt-2 align-items-center '>
-                                <div>
-                                    <DriverTripsChart />
-                                </div>
-                                <div className='ms-1 w-100'>
-                                    {
-                                        stat.map(
-                                            item =>
-                                                <div key={item.label} className="text-muted">
-                                                    <div className='d-flex justify-content-between '>
-                                                        <div>{item.icon}<small className='ms-2'>{item.label}</small></div>
-                                                        <small>{item.figure}</small>
-                                                    </div>
-                                                </div>
-                                        )
-                                    }
-                                </div>
-                            </div>
+                            <small className='text-muted'>
+                                Date / Comment ID
+                            </small>
                             <div>
+                                3 hrs ago
+                                <p><small className='text-muted'>630349dadf94ac93d69f20bb</small></p>
+                            </div>
+                        </div>
+                        <div className='my-3'>
+                            <small className='text-muted'>
+                                Comment
+                            </small>
+                            <div>
+                                <small>
+                                    From communication strategies to negotiating group dynamics, we have tips and advice for building strong creative alliances that are more than the sum of their parts.
+                                    Showcase your best work and make a memorable impression with our handbook on creating and maintaining your online portfolio.</small>
                             </div>
                         </div>
                     </div>

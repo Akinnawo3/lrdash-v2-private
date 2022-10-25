@@ -14,6 +14,7 @@ const Finance = lazy(() => import("../Pages/others/finance.js/finance"));
 //perfornmance
 const BusinessPerformance = lazy(() => import("../Pages/others/performance/BusinessPerformance"));
 const DriverPerformance = lazy(() => import("../Pages/others/performance/DriverPerformance"));
+const WatchList = lazy(() => import("../Pages/others/performance/WatchList"));
 
 export const authRoutes = [
   {path: "/signin", component: Signin, title: "Signin", leadText: ""},
@@ -29,6 +30,7 @@ export const userRoutes = [
   {path: "/finance", component: Finance, title: "Finance"},
   {path: "/performance/business", component: BusinessPerformance, title: "Performance"},
   {path: "/performance/driver", component: DriverPerformance, title: "Performance"},
+  {path: "/performance/watchlist", component: WatchList, title: "Watch List"},
 ];
 
 // TODO: 404, 500
