@@ -13,10 +13,6 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span>Showing 24 riders</span>
-
-
-
-
           <div className="cursor-pointer">
             <FilterSvg />
             <ExportSvg />
@@ -25,7 +21,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         {/* <span>Today</span> */}
       </CardTitle>
       <div>
-        <Table striped responsive>
+        <Table responsive className="cus-striped-table">
           <thead className="fw-normal">
             <tr>
               <th> Name</th>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
 import Chart from "chart.js/auto";
 
 const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => {
@@ -11,7 +11,8 @@ const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => 
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (type) => setDateType(type)
+  const handleDateTypeChange = (e) => 
+  setDateType(e.target.value)
   const options = {
     scales: {
       x: {
@@ -78,10 +79,43 @@ const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => 
             <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
               {dateType}
             </DropdownToggle>
-            <DropdownMenu>
-              {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This week")}>This week</DropdownItem>}
-              {dateType !== "This month" && <DropdownItem onClick={() => handleDateTypeChange("This month")}>This month</DropdownItem>}
-              {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Last 6 months</DropdownItem>}
+            <DropdownMenu className="px-2">
+              <div className="mb-3"> <small className="fw-bold ms-4 ">Show for</small></div>
+
+              <FormGroup check className="mb-3">
+                <Input
+                  name="dateType"
+                  type="radio"
+                  value={"This week"}
+                  onChange={handleDateTypeChange}
+                />
+                <Label check>
+                  This week
+                </Label>
+              </FormGroup>
+              <FormGroup check className="mb-3">
+                <Input
+                  name="dateType"
+                  type="radio"
+                  value={"This month"}
+                  onChange={handleDateTypeChange}
+
+                />
+                <Label check>
+                  This month
+                </Label>
+              </FormGroup>
+              <FormGroup check className="mb-3">
+                <Input
+                  name="dateType"
+                  type="radio"
+                  value={"This 6 months"}
+                  onChange={handleDateTypeChange}
+                />
+                <Label check>
+                  Last 6 months
+                </Label>
+              </FormGroup>
               {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
             </DropdownMenu>
           </Dropdown>

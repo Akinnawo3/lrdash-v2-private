@@ -36,7 +36,7 @@ body {
 
 
 .gradient-text {
-  background:$gradient-bg !important;
+  background: $gradient-bg !important;
   font-size: 200 !important;
   background-size: 100%;
   -webkit-background-clip: text !important;
@@ -45,24 +45,38 @@ body {
   -moz-text-fill-color: transparent;
 }
 
+
 td,
 th {
   white-space: nowrap;
 }
 
-.text-blue{
+.text-blue {
   color: $blue-color !important;
 }
-.text-green{
+
+.text-green {
   color: $green-color !important;
 }
-.text-orange{
+
+.text-orange {
   color: $orange-color !important;
 }
-.text-red{
+
+.text-red {
   color: $red-color !important;
 }
 
-.text-underline{
-  text-decoration:underline !important;
+.text-underline {
+  text-decoration: underline !important;
+}
+
+
+
+.cus-striped-table {
+  tr {
+    background-color: #FCFCFC !important;
+    border-color: white !important;
+    border-width: 7px !important;
+  }
 }
