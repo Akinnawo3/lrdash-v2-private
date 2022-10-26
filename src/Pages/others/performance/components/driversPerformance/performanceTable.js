@@ -10,8 +10,10 @@ import PerformanceTableFilters from "../general/PerformanceTableFilters";
 
 const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const [currentFilterTab, setCurrentFilterTab] = useState("Overall")
+  const [grade, setGrade] = useState("All")
 
   const filterTabs = ["Overall", "Service", "Compliance"]
+  const grades = ["All", "Best", "Above Av.", "Below Av", "Poor"]
 
   return (
     <Card body>
