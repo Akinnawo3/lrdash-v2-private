@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
 import { FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 
-const PerformanceTableFilters = ({  currentFilterTab, setCurrentFilterTab }) => {
+const PerformanceTableFilters = ({ currentFilterTab, setCurrentFilterTab, grade, setGrade }) => {
 
 
     const filterTabs = ["Overall", "Service", "Compliance"]
@@ -28,6 +28,25 @@ const PerformanceTableFilters = ({  currentFilterTab, setCurrentFilterTab }) => 
                 }
             </div>
             <>
+
+
+                {
+                    grades.map(
+                        item => <FormGroup check className="mb-3" key={item}>
+                            <Input
+                                id={grade}
+                                name={grade}
+                                type="radio"
+                                value={grade}
+                                onChange={(e) => setGrade(e.target.value)}
+                                defaultChecked={item === grade}
+                            />
+                            <Label check className={classNames({ "gradient-text": item === grade })} for={item}>
+                                {grade}
+                            </Label>
+                        </FormGroup>
+                    )
+                }
                 <FormGroup check className="mb-3">
                     <Input
                         id={idPrefix + "Overall Perf"}
