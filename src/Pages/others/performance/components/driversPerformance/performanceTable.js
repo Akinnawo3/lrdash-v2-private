@@ -12,8 +12,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const [currentFilterTab, setCurrentFilterTab] = useState("Overall")
   const [grade, setGrade] = useState("All")
 
-  const filterTabs = ["Overall", "Service", "Compliance"]
-  const grades = ["All", "Best", "Above Av.", "Below Av", "Poor"]
+
 
   return (
     <Card body>
@@ -23,7 +22,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
           <div className="cursor-pointer">
 
             {/* <FilterSvg /> */}
-            <PerformanceTableFilters filterTabs={filterTabs} currentFilterTab={currentFilterTab} setCurrentFilterTab={setCurrentFilterTab} />
+            <PerformanceTableFilters currentFilterTab={currentFilterTab} setCurrentFilterTab={setCurrentFilterTab} grade={grade} setGrade={setGrade} />
             <ExportSvg />
           </div>
         </div>

@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
 import { FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 
-const PerformanceTableFilters = ({ filterTabs, currentFilterTab, setCurrentFilterTab }) => {
+const PerformanceTableFilters = ({  currentFilterTab, setCurrentFilterTab }) => {
+
+
+    const filterTabs = ["Overall", "Service", "Compliance"]
+    const grades = ["All", "Best", "Above Av.", "Below Av", "Poor"]
 
 
     return <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
@@ -17,7 +21,7 @@ const PerformanceTableFilters = ({ filterTabs, currentFilterTab, setCurrentFilte
             <div className="mt-3 d-flex justify-content-between">
                 {
                     filterTabs.map(
-                        item => <div key={item} className={classNames("gradient-btn px-2")} onClick={()=>setCurrentFilterTab(item)}>
+                        item => <div key={item} className={classNames("gradient-btn px-2")} onClick={() => setCurrentFilterTab(item)}>
                             {item}
                         </div>
                     )
