@@ -4,6 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import DateTypeFilter from "../general/DateTypeFilter";
+import PerformanceTypeFilter from "../general/PerformanceTypeFilter";
 
 const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const [dateType, setDateType] = useState("This week");
@@ -23,7 +24,7 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const handlePerfToggle = () => {
     setPerfToggled(!perfToggled);
   };
-  const handlePerfTypeTypeChange = (type) => setPerfType(type)
+  const handlePerfTypeChange = (e) => setPerfType(e.target.value)
 
 
   const labels = [
@@ -169,18 +170,8 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
 
             <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
               idPrefix="driver performance doughnut " />
-            <Dropdown direction="top" className="d-inline" isOpen={perfToggled} toggle={handlePerfToggle}>
-
-              <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
-                {perfType}
-              </DropdownToggle>
-              <DropdownMenu>
-                {dateType !== "Overall Perf." && <DropdownItem onClick={(e) => handlePerfTypeTypeChange("This week")}>Overall Perf.</DropdownItem>}
-                {dateType !== "Service Perf." && <DropdownItem onClick={() => handlePerfTypeTypeChange("This month")}>Service Perf.</DropdownItem>}
-                {dateType !== "Compliance Perf" && <DropdownItem onClick={() => handlePerfTypeTypeChange("Last 6 months")}>Compliance Perf.</DropdownItem>}
-                {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
-              </DropdownMenu>
-            </Dropdown>
+            <PerformanceTypeFilter toggled={perfToggled} handleToggle={handlePerfToggle} perfType={perfType} handlePerfTypeChange={handlePerfTypeChange}
+              idPrefix="driver performance doughnut " />
           </span>
 
         </div>

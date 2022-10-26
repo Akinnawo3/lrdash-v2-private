@@ -50,7 +50,7 @@ const DateTypeFilter = ({
 
             <div className="d-flex justify-0content-between my-4 px-1 ">
                 <Button className="btn-sm gradient-btn ms-3 mt-2 px-3">Apply</Button>
-                <Button className="btn-sm ms-3 mt-2 px-3" >clear</Button>
+                <Button className="btn-sm ms-3 mt-2 px-3" >Clear</Button>
             </div>
         </DropdownMenu>
     </Dropdown>
