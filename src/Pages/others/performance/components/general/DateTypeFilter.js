@@ -3,7 +3,7 @@ const DateTypeFilter = ({
     toggled, handleToggle, dateType, handleDateTypeChange, idPrefix
 }) => {
     return <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
-        <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white bg-danger" style={{ backgroundColor: "white", width: 100 }}>
+        <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white", width: 100 }}>
             {dateType}
         </DropdownToggle>
         <DropdownMenu className="px-2" style={{ width: 230 }}>

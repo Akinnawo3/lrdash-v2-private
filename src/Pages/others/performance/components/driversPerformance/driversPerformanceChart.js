@@ -14,7 +14,8 @@ const DriversPerformanceChart = ({ loading, getDownloadsByDate, downloadsByDate 
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (type) => setDateType(type)
+  const handleDateTypeChange = (e) =>
+    setDateType(e.target.value)
   const handlePerfToggle = () => {
     setPerfToggled(!perfToggled);
   };
