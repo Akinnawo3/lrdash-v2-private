@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import Chart from "chart.js/auto";
+import DateTypeFilter from "../general/DateTypeFilter";
 
 const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   // const [startDate, setStartDate] = useState(getFirstDayOfMonth());
@@ -11,7 +12,9 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (type) => setDateType(type)
+  const handleDateTypeChange = (e) =>
+    setDateType(e.target.value)
+
   const options = {
     scales: {
       x: {
@@ -66,23 +69,12 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
     ],
   };
   return (
-    <Card body style={{ height: 280}}>
+    <Card body style={{ height: 280 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Active Vehicles</span>
-
-          <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
-
-            <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
-              {dateType}
-            </DropdownToggle>
-            <DropdownMenu>
-              {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This week")}>This week</DropdownItem>}
-              {dateType !== "This month" && <DropdownItem onClick={() => handleDateTypeChange("This month")}>This month</DropdownItem>}
-              {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Last 6 months</DropdownItem>}
-              {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
-            </DropdownMenu>
-          </Dropdown>
+          <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
+          />
         </div>
       </CardTitle>
       <div>

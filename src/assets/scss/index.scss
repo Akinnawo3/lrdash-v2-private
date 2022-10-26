@@ -80,3 +80,10 @@ th {
     border-width: 7px !important;
   }
 }
+
+
+
+.form-check-input:checked {
+  background-color: $green-color;
+  border-color: $green-color ;
+}
