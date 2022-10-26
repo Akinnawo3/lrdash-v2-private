@@ -11,7 +11,6 @@ const SideBar = () => {
   const { expanded, setExpanded } = useContext(AppPrefrenceContext);
   const navigate = useNavigate();
 
-
   return (
     <div className={`sidebar ${expanded && "expanded"}`}>
       <div className="mt-4 mb-5 d-flex justify-content-center">
@@ -27,55 +26,17 @@ const SideBar = () => {
           itemId.includes("/") && navigate(itemId);
           itemId.includes("/") && setExpanded(false);
         }}
-        items={
-          menuItems.map((item) => ({
-            title: item.title,
-            itemId: item.link,
-            elemBefore: () => item?.icon,
-            subNav: item.subNavs
-              ? item.subNavs.map((subNav) => ({
+        items={menuItems.map((item) => ({
+          title: item.title,
+          itemId: item.link,
+          elemBefore: () => item?.icon,
+          subNav: item.subNavs
+            ? item.subNavs.map((subNav) => ({
                 title: subNav.title,
                 itemId: subNav.link,
               }))
-              : null,
-          }))
-
-          // [
-          //   {
-          //     title: "Dashboard",
-          //     itemId: "/dashboard",
-          //     // you can use your own custom Icon component as well
-          //     // icon is optional
-          //     elemBefore: () => <RiCloseCircleFill />,
-          //   },
-          //   {
-          //     title: "Management",
-          //     itemId: "/management",
-          //     elemBefore: () => <RiCloseCircleFill />,
-          //     subNav: [
-          //       {
-          //         title: "Projects",
-          //         itemId: "/management/projects",
-          //       },
-          //       {
-          //         title: "Members",
-          //         itemId: "/management/members",
-          //       },
-          //     ],
-          //   },
-          //   {
-          //     title: "Another Item",
-          //     itemId: "/another",
-          //     elemBefore: () => <RiCloseCircleFill />,
-          //     subNav: [
-          //       {
-          //         title: "Teams",
-          //         itemId: "/management/teams",
-          //       },
-          //     ],
-          //   },
-          // ]
-        }
+            : null,
+        }))}
       />
     </div>
   );
