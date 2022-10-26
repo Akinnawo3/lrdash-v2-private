@@ -1,3 +1,5 @@
+import { TiChartBarOutline } from "react-icons/ti";
+
 export const performanceLinks = {
   title: "Performance",
   icon: <TiChartBarOutline />,
