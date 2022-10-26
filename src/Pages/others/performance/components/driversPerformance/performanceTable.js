@@ -18,7 +18,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const handleToggle = () => {
     setToggled(!toggled);
   };
-
+  const handleGradeChange = (e) => setGrade(e.target.value);
   return (
     <Card body>
       <CardTitle className=" justify-content-between">
@@ -32,7 +32,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
               currentFilterTab={currentFilterTab}
               setCurrentFilterTab={setCurrentFilterTab}
               grade={grade}
-              setGrade={setGrade}
+              handleGradeChange={handleGradeChange}
             />
             <ExportSvg />
           </div>

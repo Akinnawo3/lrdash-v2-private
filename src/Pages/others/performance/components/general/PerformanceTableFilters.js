@@ -20,7 +20,7 @@ const PerformanceTableFilters = ({
   currentFilterTab,
   setCurrentFilterTab,
   grade,
-  setGrade,
+  handleGradeChange,
 }) => {
   const filterTabs = ["Overall", "Service", "Compliance"];
   const grades = ["All", "Best", "Above Av.", "Below Av", "Poor"];
@@ -33,7 +33,7 @@ const PerformanceTableFilters = ({
       toggle={handleToggle}
     >
       <DropdownToggle
-        caret
+        // caret
         className="btn-sm p-0 text-muted px-1 border-white "
         style={{ backgroundColor: "white", width: 100 }}
       >
@@ -61,12 +61,13 @@ const PerformanceTableFilters = ({
         {grades.map((item) => (
           <FormGroup check className="mb-3" key={item}>
             <Input
-              id={grade}
+              id={item}
               name={item}
               type="radio"
               value={item}
-              onChange={(e) => setGrade(e.target.value)}
-              defaultChecked={item === grade}
+              onChange={handleGradeChange}
+            //   defaultChecked={grade === 2}
+              checked={grade===item}
             />
             <Label
               check
