@@ -3,10 +3,8 @@ import { useState } from "react";
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
 import { FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 
-const PerformanceTableFilters = () => {
-    const tab = useState("Overall")
-
-    const tabs = ["Overall", "Service", "Compliance"]
+const PerformanceTableFilters = ({filterTabs,currentFilterTab}) => {
+  
 
     return <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
         <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white " style={{ backgroundColor: "white", width: 100 }}>
