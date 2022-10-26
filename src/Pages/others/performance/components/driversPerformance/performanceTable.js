@@ -4,15 +4,20 @@ import React, { Fragment, useEffect, useState } from "react";
 import { BsFileEarmarkArrowUp } from "react-icons/bs";
 
 import { Card, CardTitle, Table } from "reactstrap";
-import { ExportSvg, FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
+import {
+  ExportSvg,
+  FilterSvg,
+} from "../../../../../components/tablesComponents/tableSvgs";
 import { performancePercentageColor } from "../../../../../helpers/colorsHelper";
 import PerformanceTableFilters from "../general/PerformanceTableFilters";
 
 const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
-  const [currentFilterTab, setCurrentFilterTab] = useState("Overall")
-  const [grade, setGrade] = useState("All")
-
-
+  const [currentFilterTab, setCurrentFilterTab] = useState("Overall");
+  const [grade, setGrade] = useState("All");
+  const [toggled, setToggled] = useState(false);
+  const handleToggle = () => {
+    setToggled(!toggled);
+  };
 
   return (
     <Card body>
@@ -20,9 +25,15 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         <div className="justify-content-between d-flex w-100">
           <span>Showing 24 riders</span>
           <div className="cursor-pointer">
-
             {/* <FilterSvg /> */}
-            <PerformanceTableFilters currentFilterTab={currentFilterTab} setCurrentFilterTab={setCurrentFilterTab} grade={grade} setGrade={setGrade} />
+            <PerformanceTableFilters
+              toggled={toggled}
+              handleToggle={handleToggle}
+              currentFilterTab={currentFilterTab}
+              setCurrentFilterTab={setCurrentFilterTab}
+              grade={grade}
+              setGrade={setGrade}
+            />
             <ExportSvg />
           </div>
         </div>
@@ -44,14 +55,26 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
               <tr key={index}>
                 <td>
                   <span className="">
-                    <img alt="thumbnail" src="/images/avatar.png" height={25} width={22} className="rounded-circle me-1" />
+                    <img
+                      alt="thumbnail"
+                      src="/images/avatar.png"
+                      height={25}
+                      width={22}
+                      className="rounded-circle me-1"
+                    />
                   </span>
                   Joanna Lane
                 </td>
                 <td>070 3397 6621 </td>
                 <td>80%</td>
                 <td>80%</td>
-                <td className={`text-${performancePercentageColor(Math.floor(Math.random() * 10) * 10)}`}>{Math.floor(Math.random() * 10) * 10}%</td>
+                <td
+                  className={`text-${performancePercentageColor(
+                    Math.floor(Math.random() * 10) * 10
+                  )}`}
+                >
+                  {Math.floor(Math.random() * 10) * 10}%
+                </td>
               </tr>
             ))}
           </tbody>
