@@ -6,15 +6,20 @@ import { BsFileEarmarkArrowUp } from "react-icons/bs";
 import { Card, CardTitle, Table } from "reactstrap";
 import { ExportSvg, FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 import { performancePercentageColor } from "../../../../../helpers/colorsHelper";
+import PerformanceTableFilters from "../general/PerformanceTableFilters";
 
 const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
+
+  const [perfType, setPerfType] = useState("Overall")
   return (
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span>Showing 24 riders</span>
           <div className="cursor-pointer">
-            <FilterSvg />
+
+            {/* <FilterSvg /> */}
+            <PerformanceTableFilters />
             <ExportSvg />
           </div>
         </div>
@@ -32,7 +37,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
             </tr>
           </thead>
           <tbody>
-            {Array.from({ length: 12}).map((item, index) => (
+            {Array.from({ length: 12 }).map((item, index) => (
               <tr key={index}>
                 <td>
                   <span className="">
@@ -43,7 +48,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
                 <td>070 3397 6621 </td>
                 <td>80%</td>
                 <td>80%</td>
-                <td className={`text-${performancePercentageColor(Math.floor(Math.random() * 10)*10)}`}>{Math.floor(Math.random() * 10)*10}%</td>
+                <td className={`text-${performancePercentageColor(Math.floor(Math.random() * 10) * 10)}`}>{Math.floor(Math.random() * 10) * 10}%</td>
               </tr>
             ))}
           </tbody>
