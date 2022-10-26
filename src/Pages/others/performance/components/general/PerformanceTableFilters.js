@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
 import { FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 
-const PerformanceTableFilters = ({filterTabs,currentFilterTab}) => {
-  
+const PerformanceTableFilters = ({ filterTabs, currentFilterTab, setCurrentFilterTab }) => {
+
 
     return <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
         <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white " style={{ backgroundColor: "white", width: 100 }}>
@@ -16,7 +16,7 @@ const PerformanceTableFilters = ({filterTabs,currentFilterTab}) => {
             <div className="mb-3"> <small className="fw-bold ms-4 ">Show for</small></div>
             <div className="mt-3 d-flex justify-content-between">
                 {
-                    tabs.map(
+                    filterTabs.map(
                         item => <div key={item} className={classNames("gradient-btn px-2")}>
                             {item}
                         </div>

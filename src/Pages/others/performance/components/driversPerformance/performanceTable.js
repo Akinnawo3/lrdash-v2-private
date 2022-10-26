@@ -9,7 +9,7 @@ import { performancePercentageColor } from "../../../../../helpers/colorsHelper"
 import PerformanceTableFilters from "../general/PerformanceTableFilters";
 
 const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
-  const currentFilterTab = useState("Overall")
+  const [currentFilterTab, setCurrentFilterTab] = useState("Overall")
 
   const filterTabs = ["Overall", "Service", "Compliance"]
 
@@ -21,7 +21,7 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
           <div className="cursor-pointer">
 
             {/* <FilterSvg /> */}
-            <PerformanceTableFilters filterTabs={filterTabs} currentFilterTab={currentFilterTab}/>
+            <PerformanceTableFilters filterTabs={filterTabs} currentFilterTab={currentFilterTab} setCurrentFilterTab={setCurrentFilterTab} />
             <ExportSvg />
           </div>
         </div>
