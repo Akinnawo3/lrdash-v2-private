@@ -74,7 +74,7 @@ const RevenueTrendGraph = ({ loading, getDownloadsByDate, downloadsByDate }) => 
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Revenue Trend</span>
-          <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
+          <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange} idPrefix="rev trend"
           />
         </div>
       </CardTitle>

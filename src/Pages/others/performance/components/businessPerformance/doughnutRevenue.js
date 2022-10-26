@@ -126,7 +126,7 @@ const DoughnutRevenue = ({ maxHeight, cutout }) => {
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Revenue</span>
           <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-          />
+            idPrefix="rev " />
         </div>
         {/* <span>Today</span> */}
       </CardTitle>

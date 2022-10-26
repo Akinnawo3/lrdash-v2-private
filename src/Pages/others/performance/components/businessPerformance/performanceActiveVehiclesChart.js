@@ -74,7 +74,7 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Active Vehicles</span>
           <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-          />
+         idPrefix="perf vehicles" />
         </div>
       </CardTitle>
       <div>

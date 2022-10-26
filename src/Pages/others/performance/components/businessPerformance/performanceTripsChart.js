@@ -75,7 +75,7 @@ const PerformanceTripsChart = ({ loading, getDownloadsByDate, downloadsByDate })
           <span className="fw-bold">Trips</span>
 
           <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-          />
+            idPrefix="performance trips" />
         </div>
       </CardTitle>
       <div>
