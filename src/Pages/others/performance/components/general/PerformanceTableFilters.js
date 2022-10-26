@@ -17,7 +17,7 @@ const PerformanceTableFilters = ({ filterTabs, currentFilterTab, setCurrentFilte
             <div className="mt-3 d-flex justify-content-between">
                 {
                     filterTabs.map(
-                        item => <div key={item} className={classNames("gradient-btn px-2")}>
+                        item => <div key={item} className={classNames("gradient-btn px-2")} onClick={()=>setCurrentFilterTab(item)}>
                             {item}
                         </div>
                     )
