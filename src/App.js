@@ -1,7 +1,8 @@
 import AppPrefrenceContextProvider from "./contexts/AppPrefrenceContext";
 import RoutesComponent from "./routes/router";
 import {ToastContainer} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 import AuthContextProvider from "./contexts/AuthContext";
 import LoadingContextProvider from "./contexts/LoadingContext";
 import axios from "axios";
@@ -29,7 +30,7 @@ function App() {
   // );
   return (
     <div className={"App"}>
-      <ToastContainer position={"top-right"} transition={"Slide"} />
+      <ToastContainer position={"top-right"} />
       <AppPrefrenceContextProvider>
         <AuthContextProvider>
           <LoadingContextProvider>
