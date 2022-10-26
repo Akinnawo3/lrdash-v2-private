@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } 
 import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import DateTypeFilter from "../general/DateTypeFilter";
 
 const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const [dateType, setDateType] = useState("This week");
@@ -12,7 +13,13 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (type) => setDateType(type)
+  const handleDateTypeChange = (e) =>
+    setDateType(e.target.value)
+
+
+
+
+
   const handlePerfToggle = () => {
     setPerfToggled(!perfToggled);
   };
@@ -160,18 +167,8 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
 
           <span>
 
-            <Dropdown direction="top" className="d-inline me-1" isOpen={toggled} toggle={handleToggle}>
-
-              <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>
-                {dateType}
-              </DropdownToggle>
-              <DropdownMenu>
-                {dateType !== "This week" && <DropdownItem onClick={(e) => handleDateTypeChange("This week")}>This week</DropdownItem>}
-                {dateType !== "This month" && <DropdownItem onClick={() => handleDateTypeChange("This month")}>This month</DropdownItem>}
-                {dateType !== "Last 6 months" && <DropdownItem onClick={() => handleDateTypeChange("Last 6 months")}>Last 6 months</DropdownItem>}
-                {/* <Button className="btn-sm gradient-btn px-2 ms-3 mt-2">Apply</Button> */}
-              </DropdownMenu>
-            </Dropdown>
+            <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
+              idPrefix="driver performance doughnut " />
             <Dropdown direction="top" className="d-inline" isOpen={perfToggled} toggle={handlePerfToggle}>
 
               <DropdownToggle caret className="btn-sm p-0 text-muted px-1 border-white" style={{ backgroundColor: "white" }}>

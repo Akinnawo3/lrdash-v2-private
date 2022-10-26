@@ -1,5 +1,6 @@
+
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
-const DateTypeFilter = ({
+const PerformanceTypeFilter = ({
     toggled, handleToggle, dateType, handleDateTypeChange, idPrefix
 }) => {
     return <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
@@ -10,41 +11,41 @@ const DateTypeFilter = ({
             <div className="mb-3"> <small className="fw-bold ms-4 ">Show for</small></div>
             <FormGroup check className="mb-3">
                 <Input
-                    id={idPrefix + "This week"}
-                    name="dateType"
+                    id={idPrefix + "Overall Perf"}
+                    name="perfType"
                     type="radio"
-                    value="This week"
+                    value="Overall Perf."
                     onChange={handleDateTypeChange}
-                    defaultChecked={dateType === "This week"}
+                    defaultChecked={dateType === ""}
                 />
-                <Label check className={`${dateType === "This week" && "gradient-text"}`} for={idPrefix + "This week"}>
-                    This week
+                <Label check className={`${dateType === "This week" && "gradient-text"}`} for={idPrefix + "Overall Perf"}>
+                    Overall Perf.
                 </Label>
             </FormGroup>
             <FormGroup check className="mb-3">
                 <Input
-                    id={idPrefix + "This month"}
-                    name="dateType"
+                    id={idPrefix + "Service Perf"}
+                    name="perfType"
                     type="radio"
                     value="This month"
                     onChange={handleDateTypeChange}
                     defaultChecked={dateType === "This month"}
                 />
-                <Label check className={`${dateType === "This month" && "gradient-text"}`} for={idPrefix + "This month"}>
-                    This month
+                <Label check className={`${dateType === "This month" && "gradient-text"}`} for={idPrefix + "Service Perf"}>
+                    Service Perf.
                 </Label>
             </FormGroup>
             <FormGroup check className="mb-3">
                 <Input
-                    id={idPrefix + "Last 6 months"}
-                    name="dateType"
+                    id={idPrefix + "Compliance Perf"}
+                    name="perfType"
                     type="radio"
                     value="Last 6 months"
                     onChange={handleDateTypeChange}
                     defaultChecked={dateType === "Last 6 months"}
                 />
-                <Label check className={`${dateType === "Last 6 months" && "gradient-text"}`} for={idPrefix + "Last 6 months"}>
-                    Last 6 months
+                <Label check className={`${dateType === "Last 6 months" && "gradient-text"}`} for={idPrefix + "Compliance Perf"}>
+                    Compliance Perf.
                 </Label>
             </FormGroup>
 
@@ -57,4 +58,8 @@ const DateTypeFilter = ({
 
 }
 
-export default DateTypeFilter
+export default PerformanceTypeFilter
+
+
+
+
