@@ -1,12 +1,26 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 
 export const TripsContext = createContext();
 
-const TripsContextProvider = ({children}) => {
+const TripsContextProvider = ({ children }) => {
   const [trips, setTrips] = useState([]);
-  const [todayPerformance, setTodayPerformance] = useState();
+  const [driversPerormance, setDriversPerformance] = useState();
+  const [driversPerormanceCount, setDriversPerformanceCount] = useState(0);
 
-  return <TripsContext.Provider value={{trips, setTrips, todayPerformance, setTodayPerformance}}>{children}</TripsContext.Provider>;
+  return (
+    <TripsContext.Provider
+      value={{
+        trips,
+        setTrips,
+        driversPerormance,
+        setDriversPerformance,
+        driversPerormanceCount,
+        setDriversPerformanceCount,
+      }}
+    >
+      {children}
+    </TripsContext.Provider>
+  );
 };
 
 export default TripsContextProvider;
