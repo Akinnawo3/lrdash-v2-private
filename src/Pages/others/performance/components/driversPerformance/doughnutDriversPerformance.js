@@ -164,7 +164,7 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
     <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span className="fw-bold">Perf</span>
+          <span className="fw-bold">Perf.</span>
 
           <span>
 
