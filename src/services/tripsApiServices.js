@@ -9,7 +9,6 @@ export const useTripsApiServices = () => {
   const { setGetLoading } = useContext(LoadingContext);
   const { setDriversPerformance, setDriversPerformanceCount } =
     useContext(TripsContext);
-
   //get compliance for today
   const getCompliance = async ({
     watch = false,
@@ -26,10 +25,15 @@ export const useTripsApiServices = () => {
     );
     const res = await toastifyPromises.get({ asyncFunction });
     if (res && res.data.status !== "error") {
-      await setTodayPerformance(res.data.data);
+      component === "count"
+        ? setDriversPerformanceCount()
+        : setDriversPerformance(res.data.data);
     }
     setGetLoading(false);
   };
 
-  return { getTodayCompliance };
+
+  
+
+  return { getCompliance };
 };
