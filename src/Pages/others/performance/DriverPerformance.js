@@ -10,9 +10,9 @@ import DriversPerformanceChart from "./components/driversPerformance/driversPerf
 import DriverDetails from "./components/driversPerformance/DriverDetails";
 
 const DriverPerformance = () => {
-  const { getTodayCompliance } = useTripsApiServices();
+  const { getPerformance } = useTripsApiServices();
   useEffect(() => {
-    getTodayCompliance();
+    getPerformance();
   }, []);
 
   return (

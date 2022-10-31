@@ -4,9 +4,9 @@ import {ToastContainer} from "react-toastify";
 
 
 import AuthContextProvider from "./contexts/AuthContext";
-import LoadingContextProvider from "./contexts/LoadingContext";
 import axios from "axios";
 import TripsContextProvider from "./contexts/tripsContext";
+import LoadingContextProvider from "./contexts/LoadingContext";
 
 function App() {
   (function () {
@@ -15,6 +15,9 @@ function App() {
       axios.defaults.headers.common["Authorization"] = token;
     }
   })();
+
+
+  
 
   // axios.interceptors.response.use(
   //   (response) => {

@@ -11,7 +11,7 @@ import {toastifyPromises} from "../helpers/toastifyHelper";
 export const useAuthApiServices = () => {
   // api
   const navigate = useNavigate();
-  const {postLoading, setPostLoading} = useContext(LoadingContext);
+  const { setPostLoading} = useContext(LoadingContext);
   const {loginUserAction, logoutUserAction} = useContext(AuthContext);
 
   const loginUser = async (body) => {
@@ -20,7 +20,8 @@ export const useAuthApiServices = () => {
     const res = await toastifyPromises.post({asyncFunction, pendingMsg: "Login in", SuccessMsg: "Login Successful"});
     if (res && res.data.status !== "error") {
       await loginUserAction(res.data.data);
-      window.location.replace("/");
+      // window.location.replace("/");
+      navigate("/")
     }
     setPostLoading(false);
   };

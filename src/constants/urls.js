@@ -3,8 +3,8 @@ import {AuthContext} from "../contexts/AuthContext";
 export let api;
 
 const useUrlComp = () => {
-  const {auth} = useContext(AuthContext);
-  console.log(auth);
+  const {userData} = useContext(AuthContext);
+  console.log(userData);
   const live = {
     bookingTypes: "https://taxitriptypebackend-microservices.api.lagosride.com",
     // classTypes: 'https://134.209.16.20:7090',
@@ -57,7 +57,7 @@ const useUrlComp = () => {
     socket: "https://staging-server.lagosride.com/admin-socket",
     oem: "https://staging-server.lagosride.com/oem-service",
   };
-  api = auth?.data_mode === "live" ? live : staging;
+  api = userData?.data_mode === "live" ? live : staging;
   return null;
 };
 

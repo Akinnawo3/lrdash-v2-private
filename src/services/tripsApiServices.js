@@ -9,8 +9,9 @@ export const useTripsApiServices = () => {
   const { setGetLoading } = useContext(LoadingContext);
   const { setDriversPerformance, setDriversPerformanceCount } =
     useContext(TripsContext);
-  //get compliance for today
-  const getCompliance = async ({
+
+  //get drivers performance
+  const getPerformance = async ({
     watch = false,
     driverId = "",
     startDate = "",
@@ -18,7 +19,7 @@ export const useTripsApiServices = () => {
     page = 1,
     q = "",
     component = "",
-  }) => {
+  } = {}) => {
     setGetLoading(true);
     const asyncFunction = axios.get(
       `${api.trip}/reports/services/?page=${page}&item_per_page=20&start_date=${startDate}&end_date=${endDate}&watch=${watch}&driverId=${driverId}&q=${q}&component=${component}`
@@ -32,8 +33,5 @@ export const useTripsApiServices = () => {
     setGetLoading(false);
   };
 
-
-  
-
-  return { getCompliance };
+  return { getPerformance };
 };
