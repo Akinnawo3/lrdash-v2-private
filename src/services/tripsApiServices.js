@@ -12,7 +12,7 @@ export const useTripsApiServices = () => {
   //get compliance for today
   const getTodayCompliance = async () => {
     setGetLoading(true);
-    const asyncFunction = axios.get(`${api.trip}/v1.1/analytics/compliance`);
+    const asyncFunction = axios.get(`${api.trip}/reports/services`);
     const res = await toastifyPromises.get({asyncFunction});
     if (res && res.data.status !== "error") {
       await setTodayPerformance(res.data.data);

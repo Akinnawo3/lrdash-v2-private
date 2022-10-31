@@ -41,7 +41,7 @@ const useUrlComp = () => {
     wallet: "https://staging-server.lagosride.com/wallet-service",
     referral: "https://staging-server.lagosride.com/referral-service",
     fdt: "https://staging-server.lagosride.com/fdt-service",
-    trip: "https://staging-server.lagosride.com/tripreporting-service",
+    trip: "https://staging-server.lagosride.com/tripreporting-service/v2",
     rating: "https://staging-server.lagosride.com/triprating-service",
     messageWorker: "https://staging-server.lagosride.com/message-service",
     cancellationReasons: "https://staging-server.lagosride.com/trip-cancellation",
