@@ -10,8 +10,7 @@ import {
   DropdownToggle,
 } from "reactstrap";
 import Chart from "chart.js/auto";
-import DateTypeFilter from "../general/DateTypeFilter";
-import PerformanceTypeFilter from "../general/PerformanceTypeFilter";
+import DateTypeFilter from "./filters/DateTypeFilter";
 
 const PaymentMethodTrend = ({
   loading,
@@ -112,23 +111,23 @@ const PaymentMethodTrend = ({
     <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span className="fw-bold">Drivers Performance</span>
+          <span className="fw-bold">Payment methods trend</span>
           <span>
             <DateTypeFilter
               toggled={toggled}
               handleToggle={handleToggle}
               dateType={dateType}
               handleDateTypeChange={handleDateTypeChange}
-              idPrefix="driver perf chart "
+              idPrefix="revenue trend "
             />
 
-            <PerformanceTypeFilter
+            {/* <PerformanceTypeFilter
               toggled={perfToggled}
               handleToggle={handlePerfToggle}
               perfType={perfType}
               handlePerfTypeChange={handlePerfTypeChange}
               idPrefix="driver performance chart "
-            />
+            /> */}
           </span>
         </div>
       </CardTitle>
