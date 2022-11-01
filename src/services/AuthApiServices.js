@@ -20,8 +20,8 @@ export const useAuthApiServices = () => {
     const res = await toastifyPromises.post({asyncFunction, pendingMsg: "Login in", SuccessMsg: "Login Successful"});
     if (res && res.data.status !== "error") {
       await loginUserAction(res.data.data);
-      // window.location.replace("/");
-      navigate("/")
+      window.location.replace("/");
+      // navigate("/")
     }
     setPostLoading(false);
   };

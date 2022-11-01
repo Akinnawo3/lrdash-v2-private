@@ -1,9 +1,21 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import AuthContextProvider from "../../../contexts/AuthContext";
 import LoadingContextProvider from "../../../contexts/LoadingContext";
 import { TestRenderTemplate } from "../../../TestRenderTemplate";
 import Signin from "../Signin";
+
+jest.mock("axios", () => ({
+  __esModule: true,
+  default: {
+    post: () => ({
+      data: {
+        status: "success",
+        data: {},
+      },
+    }),
+  },
+}));
 
 describe("Signin Component tests", () => {
   it("Signin component should be rendered", () => {
@@ -63,5 +75,21 @@ describe("Signin Component tests", () => {
 
     fireEvent.click(buttonEl);
     expect(buttonEl).toHaveTextContent(/loading.../i);
+  });
+  it("loading should not be rendered after fetching", async () => {
+    render(
+      <TestRenderTemplate>
+        <Signin />
+      </TestRenderTemplate>
+    );
+    const telephoneInputEl = screen.getByPlaceholderText(/Enter phone number/i);
+    const passwordInputEl = screen.getByPlaceholderText(/enter password/i);
+    const buttonEl = screen.getByRole("button");
+
+    fireEvent.change(telephoneInputEl, { target: { value: "08166551790" } });
+    fireEvent.change(passwordInputEl, { target: { value: "Password" } });
+
+    fireEvent.click(buttonEl);
+    await waitFor(() => expect(buttonEl).toHaveTextContent(/loading.../i));
   });
 });

@@ -1,8 +1,10 @@
-import { TiChartBarOutline } from "react-icons/ti";
+import { TbCurrencyNaira } from "react-icons/tb";
+import { FinanceIcon } from "../../assets/svgs/svgs";
 
 export const financeRoutes = {
   title: "Finance",
-  icon: <TiChartBarOutline />,
+  // icon: <TbCurrencyNaira />,
+  icon: <FinanceIcon />,
   link: "finance..",
   subNavs: [
     {

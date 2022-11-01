@@ -12,10 +12,8 @@ import PerformanceActiveVehiclesChart from "./components/businessPerformance/per
 import BlankCard from "../../../components/BlankCard";
 
 const BusinessPerformance = () => {
-  const { getTodayCompliance } = useTripsApiServices();
-  useEffect(() => {
-    getTodayCompliance();
-  }, []);
+  // const { getTodayCompliance } = useTripsApiServices();
+
 
   return (
     <div className="table-wrapper mb-3">
