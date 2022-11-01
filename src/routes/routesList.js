@@ -22,11 +22,17 @@ const DriverPerformance = lazy(() =>
 const WatchList = lazy(() => import("../Pages/others/performance/WatchList"));
 
 //finance
-const Revenue = lazy(() => import("../Pages/others/finance.js/Revenue"));
-const ServicePayment = lazy(() => import("../Pages/others/finance.js/ServicePayment"));
-
-
-
+const Revenue = lazy(() => import("../Pages/others/finance/revenue/Revenue"));
+const ServicePayment = lazy(() =>
+  import("../Pages/others/finance/service-payment/ServicePayment")
+);
+const Wallet = lazy(() => import("../Pages/others/finance/wallet/Wallet"));
+const DebtService = lazy(() =>
+  import("../Pages/others/finance/debtService/DebtService")
+);
+const Disbursement = lazy(() =>
+  import("../Pages/others/finance/disbursemant/Disbursement")
+);
 
 export const authRoutes = [
   { path: "/signin", component: Signin, title: "Signin", leadText: "" },
@@ -55,7 +61,31 @@ export const userRoutes = [
 
   //finance
   { path: "/finance/revenue", component: Revenue, title: "Revenue" },
-  { path: "/finance/revenue", component: ServicePayment, title: "Service Payment" },
+  {
+    path: "/finance/service-payment",
+    component: ServicePayment,
+    title: "Service Payment",
+  },
+  {
+    path: "/finance/service-payment",
+    component: ServicePayment,
+    title: "Service Payment",
+  },
+  {
+    path: "/finance/wallet",
+    component: Wallet,
+    title: "Wallet",
+  },
+  {
+    path: "/finance/debt-service",
+    component: DebtService,
+    title: "Debt Service",
+  },
+  {
+    path: "/finance/disbursement",
+    component: Disbursement,
+    title: "Disbursement",
+  },
 ];
 
 // TODO: 404, 500
