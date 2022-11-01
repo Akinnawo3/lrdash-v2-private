@@ -1,10 +1,25 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  CardSubtitle,
+} from "reactstrap";
 import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from "reactstrap";
 import DateTypeFilter from "../general/DateTypeFilter";
 import PerformanceTypeFilter from "../general/PerformanceTypeFilter";
+import FilterOptions from "../../../../../components/filter/Filter";
 
 const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const [dateType, setDateType] = useState("This week");
@@ -14,18 +29,12 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (e) =>
-    setDateType(e.target.value)
-
-
-
-
+  const handleDateTypeChange = (e) => setDateType(e.target.value);
 
   const handlePerfToggle = () => {
     setPerfToggled(!perfToggled);
   };
-  const handlePerfTypeChange = (e) => setPerfType(e.target.value)
-
+  const handlePerfTypeChange = (e) => setPerfType(e.target.value);
 
   const labels = [
     {
@@ -57,7 +66,6 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
         spacing: -20,
         borderAlign: "center",
         borderRadius: [
-
           {
             outerStart: 8,
             outerEnd: 8,
@@ -160,6 +168,18 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   //   },
   // };
 
+  const dateTypeOption = [
+    { value: "This week", label: "This week" },
+    { value: "This month", label: "This month" },
+    { value: "Last 6 months", label: "Last 6 months" },
+  ];
+
+  const perfTypeOptions = [
+    { value: "This week", label: "This week" },
+    { value: "This month", label: "This month" },
+    { value: "Last 6 months", label: "Last 6 months" },
+  ];
+
   return (
     <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
@@ -167,18 +187,32 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
           <span className="fw-bold">Perf.</span>
 
           <span>
+            <FilterOptions
+              toggled={toggled}
+              handleToggle={handleToggle}
+              options={dateTypeOption}
+              selectedOption={dateType}
+              optionChange={handleDateTypeChange}
+              name="trips"
+            />
 
-            <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-              idPrefix="driver performance doughnut " />
-            <PerformanceTypeFilter toggled={perfToggled} handleToggle={handlePerfToggle} perfType={perfType} handlePerfTypeChange={handlePerfTypeChange}
-              idPrefix="driver performance doughnut " />
+            <FilterOptions
+              toggled={perfToggled}
+              handleToggle={handlePerfToggle}
+              options={perfTypeOptions}
+              selectedOption={perfType}
+              optionChange={handlePerfTypeChange}
+              name="trips_perf_type"
+            />
           </span>
-
         </div>
         {/* <span>Today</span> */}
       </CardTitle>
       {/* <CardBody className=""> */}
-      <div style={{ width: "150px", height: "150px", position: "relative" }} className="mx-auto">
+      <div
+        style={{ width: "150px", height: "150px", position: "relative" }}
+        className="mx-auto"
+      >
         <Doughnut data={data} options={options} width={70} height={70} />
         {/* <Doughnut data={data} options={options} width={200} height={250} /> */}
         {/* <div style={{ position: "absolute", width: "100%", top: "50%", left: 0, textAlign: "center", marginTop: "-28px", lineHeight: "20px" }}>
@@ -210,7 +244,6 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
             <div>10%</div>
           </div>
         </div>
-
       </div>
       {/* </CardBody> */}
     </Card>

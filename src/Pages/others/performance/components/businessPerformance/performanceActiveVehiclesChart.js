@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardTitle,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from "reactstrap";
 import Chart from "chart.js/auto";
 import DateTypeFilter from "../general/DateTypeFilter";
+import FilterOptions from "../../../../../components/filter/Filter";
 
-const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloadsByDate }) => {
+const PerformanceActiveVehiclesChart = ({
+  loading,
+  getDownloadsByDate,
+  downloadsByDate,
+}) => {
   // const [startDate, setStartDate] = useState(getFirstDayOfMonth());
   // const [endDate, setEndDate] = useState(getTodayDate());
   const [dateType, setDateType] = useState("This week");
@@ -12,8 +25,7 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (e) =>
-    setDateType(e.target.value)
+  const handleDateTypeChange = (e) => setDateType(e.target.value);
 
   const options = {
     scales: {
@@ -22,15 +34,14 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
           display: false,
           borderColor: "white",
         },
-        beginAtZero: true
+        beginAtZero: true,
       },
       y: {
         grid: {
           display: false,
           borderColor: "white",
         },
-        beginAtZero: true
-
+        beginAtZero: true,
       },
     },
 
@@ -68,13 +79,24 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
       // },
     ],
   };
+  const dateTypeOption = [
+    { value: "This week", label: "This week" },
+    { value: "This month", label: "This month" },
+    { value: "Last 6 months", label: "Last 6 months" },
+  ];
   return (
     <Card body style={{ height: 280 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Active Vehicles</span>
-          <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-         idPrefix="perf vehicles" />
+          <FilterOptions
+            toggled={toggled}
+            handleToggle={handleToggle}
+            options={dateTypeOption}
+            selectedOption={dateType}
+            optionChange={handleDateTypeChange}
+            name="vehicles"
+          />
         </div>
       </CardTitle>
       <div>
@@ -85,4 +107,3 @@ const PerformanceActiveVehiclesChart = ({ loading, getDownloadsByDate, downloads
 };
 
 export default PerformanceActiveVehiclesChart;
-;
