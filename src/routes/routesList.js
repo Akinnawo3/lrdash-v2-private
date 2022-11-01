@@ -61,11 +61,7 @@ export const userRoutes = [
 
   //finance
   { path: "/finance/revenue", component: Revenue, title: "Revenue" },
-  {
-    path: "/finance/service-payment",
-    component: ServicePayment,
-    title: "Service Payment",
-  },
+
   {
     path: "/finance/service-payment",
     component: ServicePayment,

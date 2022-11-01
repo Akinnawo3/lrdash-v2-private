@@ -1,7 +1,21 @@
 import React from "react";
+import { Col, Row } from "reactstrap";
+import PaymentMethodTrend from "./components/PaymentMethodTrend";
+import TripsSummary from "./components/TripsSummary";
 
 function Revenue() {
-  return <div>Revenue</div>;
+  return (
+    <div>
+      <Row>
+        <Col sm={12}>
+          <TripsSummary />
+        </Col>
+        <Col md={6}>
+          <PaymentMethodTrend />
+        </Col>
+      </Row>
+    </div>
+  );
 }
 
 export default Revenue;
