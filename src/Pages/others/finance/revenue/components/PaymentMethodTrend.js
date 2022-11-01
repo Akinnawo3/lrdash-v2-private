@@ -10,7 +10,8 @@ import {
   DropdownToggle,
 } from "reactstrap";
 import Chart from "chart.js/auto";
-import DateTypeFilter from "./filters/DateTypeFilter";
+import FilterOptions from "../../../../../components/filter/Filter";
+// import DateTypeFilter from "./filters/DateTypeFilter";
 
 const PaymentMethodTrend = ({
   loading,
@@ -20,17 +21,18 @@ const PaymentMethodTrend = ({
   // const [startDate, setStartDate] = useState(getFirstDayOfMonth());
   // const [endDate, setEndDate] = useState(getTodayDate());
   const [dateType, setDateType] = useState("This week");
-  const [perfType, setPerfType] = useState("Overall Perf.");
+  const [status, setStatus] = useState("Successfull");
   const [toggled, setToggled] = useState(false);
-  const [perfToggled, setPerfToggled] = useState(false);
+  const [statusToggled, setStatusToggled] = useState(false);
   const handleToggle = () => {
-    setToggled(!toggled);
+    setToggled((prevStatus) => !prevStatus);
   };
   const handleDateTypeChange = (e) => setDateType(e.target.value);
-  const handlePerfToggle = () => {
-    setPerfToggled(!perfToggled);
+
+  const handleStatusToggled = () => {
+    setStatusToggled((prevStatus) => !prevStatus);
   };
-  const handlePerfTypeChange = (e) => setPerfType(e.target.value);
+  const handleStatusChange = (e) => setStatus(e.target.value);
   const options = {
     scales: {
       x: {
@@ -63,7 +65,6 @@ const PaymentMethodTrend = ({
   };
   const data = {
     labels: ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"],
-
     datasets: [
       {
         label: "BestBest (> 80%) ",
@@ -107,27 +108,27 @@ const PaymentMethodTrend = ({
       },
     ],
   };
+
+  const dateTypeOption = [
+    { value: "Last 7 days", label: "Last 7 days" },
+    { value: "This month", label: "This month" },
+    { value: "Last 3 months", label: "Last 3 months" },
+    { value: "All time", label: "All time" },
+  ];
   return (
     <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Payment methods trend</span>
           <span>
-            <DateTypeFilter
+            <FilterOptions
               toggled={toggled}
               handleToggle={handleToggle}
-              dateType={dateType}
-              handleDateTypeChange={handleDateTypeChange}
-              idPrefix="revenue trend "
+              options={dateTypeOption}
+              selectedOption={dateType}
+              optionChange={handleDateTypeChange}
+              name="date-type"
             />
-
-            {/* <PerformanceTypeFilter
-              toggled={perfToggled}
-              handleToggle={handlePerfToggle}
-              perfType={perfType}
-              handlePerfTypeChange={handlePerfTypeChange}
-              idPrefix="driver performance chart "
-            /> */}
           </span>
         </div>
       </CardTitle>

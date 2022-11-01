@@ -1,9 +1,24 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  CardSubtitle,
+} from "reactstrap";
 import { Doughnut } from "react-chartjs-2";
 import Chart from "chart.js/auto";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from "reactstrap";
 import DateTypeFilter from "../general/DateTypeFilter";
+import FilterOptions from "../../../../../components/filter/Filter";
 
 const DoughnutRevenue = ({ maxHeight, cutout }) => {
   const [dateType, setDateType] = useState("This week");
@@ -11,8 +26,7 @@ const DoughnutRevenue = ({ maxHeight, cutout }) => {
   const handleToggle = () => {
     setToggled(!toggled);
   };
-  const handleDateTypeChange = (e) =>
-    setDateType(e.target.value)
+  const handleDateTypeChange = (e) => setDateType(e.target.value);
 
   const total = "70%";
 
@@ -120,21 +134,46 @@ const DoughnutRevenue = ({ maxHeight, cutout }) => {
   //   },
   // };
 
+  const dateTypeOption = [
+    { value: "This week", label: "This week" },
+    { value: "This month", label: "This month" },
+    { value: "Last 6 months", label: "Last 6 months" },
+  ];
   return (
     <Card body style={{ height: 335 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Revenue</span>
-          <DateTypeFilter toggled={toggled} handleToggle={handleToggle} dateType={dateType} handleDateTypeChange={handleDateTypeChange}
-            idPrefix="rev " />
+
+          <FilterOptions
+            toggled={toggled}
+            handleToggle={handleToggle}
+            options={dateTypeOption}
+            selectedOption={dateType}
+            optionChange={handleDateTypeChange}
+            name="projection"
+          />
         </div>
         {/* <span>Today</span> */}
       </CardTitle>
       {/* <CardBody className=""> */}
-      <div style={{ width: "180px", height: "180px", position: "relative" }} className="mx-auto">
+      <div
+        style={{ width: "180px", height: "180px", position: "relative" }}
+        className="mx-auto"
+      >
         <Doughnut data={data} options={options} width={70} height={70} />
         {/* <Doughnut data={data} options={options} width={200} height={250} /> */}
-        <div style={{ position: "absolute", width: "100%", top: "50%", left: 0, textAlign: "center", marginTop: "-28px", lineHeight: "20px" }}>
+        <div
+          style={{
+            position: "absolute",
+            width: "100%",
+            top: "50%",
+            left: 0,
+            textAlign: "center",
+            marginTop: "-28px",
+            lineHeight: "20px",
+          }}
+        >
           <h2 className="mb-0 fw-bold">{total}</h2>
           <small className="gradient-text fw-bold">+34%</small>
         </div>
@@ -142,7 +181,9 @@ const DoughnutRevenue = ({ maxHeight, cutout }) => {
           <h2 className="mb-0">{total}</h2>
         </div> */}
       </div>
-      <div className="my-3 fw-bold text-center text-muted"><span className="gradient-text">19.6m</span>/28m</div>
+      <div className="my-3 fw-bold text-center text-muted">
+        <span className="gradient-text">19.6m</span>/28m
+      </div>
       {/* </CardBody> */}
     </Card>
   );
