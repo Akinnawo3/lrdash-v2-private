@@ -1,15 +1,16 @@
 import { TableCell, TableRow, TableBody, TableHead } from "@material-ui/core";
+import classNames from "classnames";
 // import {TableCell, TableRow,TableBody,TableHead} from "reactstrap";
 import React, { Fragment, useEffect, useState } from "react";
 import { BsFileEarmarkArrowUp } from "react-icons/bs";
 
 import { Card, CardTitle, Table } from "reactstrap";
+import FilterOptions from "../../../../../components/filter/Filter";
 import {
   ExportSvg,
   FilterSvg,
 } from "../../../../../components/tablesComponents/tableSvgs";
 import { performancePercentageColor } from "../../../../../helpers/colorsHelper";
-import PerformanceTableFilters from "../general/PerformanceTableFilters";
 
 const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const [currentFilterTab, setCurrentFilterTab] = useState("Overall");
@@ -19,20 +20,47 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
     setToggled(!toggled);
   };
   const handleGradeChange = (e) => setGrade(e.target.value);
+  const gradesOptions = [
+    { value: "All", label: "all" },
+    { value: "Best", label: "best" },
+    { value: "Above Av.", label: "Above Av." },
+    { value: "Below Av", label: "Below Av" },
+    { value: "Poor", label: "Poor" },
+  ];
+  const filterTabs = ["Overall", "Service", "Compliance"];
+
+  const FilterTabs = () => (
+    <div className="my-3 d-flex justify-content-between">
+      {filterTabs.map((item) => (
+        <small
+          key={item}
+          className={classNames("gradient-btn px-3 text-white py-1")}
+          onClick={() => setCurrentFilterTab(item)}
+          style={{ borderRadius: 16 }}
+        >
+          {item}
+        </small>
+      ))}
+    </div>
+  );
+
   return (
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span>Showing 24 riders</span>
           <div className="cursor-pointer">
-            {/* <FilterSvg /> */}
-            <PerformanceTableFilters
+         
+            <FilterOptions
+              width={320}
+              topComponent={<FilterTabs />}
+              toggleComponent={<FilterSvg />}
               toggled={toggled}
               handleToggle={handleToggle}
-              currentFilterTab={currentFilterTab}
-              setCurrentFilterTab={setCurrentFilterTab}
-              grade={grade}
-              handleGradeChange={handleGradeChange}
+              options={gradesOptions}
+              selectedOption={grade}
+              optionChange={handleGradeChange}
+              name="perf_table_filter"
             />
             <ExportSvg />
           </div>

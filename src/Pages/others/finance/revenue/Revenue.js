@@ -11,6 +11,7 @@ function Revenue() {
           <TripsSummary />
         </Col>
         <Col md={6} className="mt-3">
+          {/* <PaymentMethodTrend /> */}
           <PaymentMethodTrend />
         </Col>
       </Row>

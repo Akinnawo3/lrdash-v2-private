@@ -17,8 +17,6 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
-import DateTypeFilter from "../general/DateTypeFilter";
-import PerformanceTypeFilter from "../general/PerformanceTypeFilter";
 import FilterOptions from "../../../../../components/filter/Filter";
 
 const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
@@ -175,9 +173,9 @@ const DoughnutDriversPerformance = ({ maxHeight, cutout }) => {
   ];
 
   const perfTypeOptions = [
-    { value: "This week", label: "This week" },
-    { value: "This month", label: "This month" },
-    { value: "Last 6 months", label: "Last 6 months" },
+    { value: "Overall Perf.", label: "Overall Perf." },
+    { value: "Service Perf.", label: "Service Perf." },
+    { value: "Compliance Perf.", label: "Compliance Perf." },
   ];
 
   return (

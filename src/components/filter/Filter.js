@@ -17,6 +17,9 @@ const FilterOptions = ({
   optionChange,
   options,
   name,
+  toggleComponent,
+  topComponent,
+  width,
 }) => {
   return (
     <Dropdown
@@ -26,18 +29,18 @@ const FilterOptions = ({
       toggle={handleToggle}
     >
       <DropdownToggle
-        caret
+        caret={!toggleComponent}
         className="btn-sm p-0 text-muted px-1 border-white "
         style={{ backgroundColor: "white", width: 100 }}
       >
-        {selectedOption.slice(0, 13)}
+        {toggleComponent ? toggleComponent : selectedOption.slice(0, 13)}
       </DropdownToggle>
-      <DropdownMenu className="px-2" style={{ width: 230 }}>
+      <DropdownMenu className="px-3" style={{ width: width ? width : 250 }}>
         <div className="mb-3">
           {" "}
           <small className="fw-bold ms-4 ">Show for</small>
         </div>
-
+        {topComponent && topComponent}
         {options.map((item) => (
           <FormGroup check className="mb-3" key={item.value}>
             <Input

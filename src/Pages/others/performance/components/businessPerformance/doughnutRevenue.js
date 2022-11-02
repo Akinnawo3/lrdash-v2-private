@@ -17,7 +17,6 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
-import DateTypeFilter from "../general/DateTypeFilter";
 import FilterOptions from "../../../../../components/filter/Filter";
 
 const DoughnutRevenue = ({ maxHeight, cutout }) => {

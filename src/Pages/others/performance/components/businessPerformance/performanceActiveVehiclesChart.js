@@ -10,7 +10,6 @@ import {
   DropdownToggle,
 } from "reactstrap";
 import Chart from "chart.js/auto";
-import DateTypeFilter from "../general/DateTypeFilter";
 import FilterOptions from "../../../../../components/filter/Filter";
 
 const PerformanceActiveVehiclesChart = ({
