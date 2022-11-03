@@ -25,6 +25,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
     { label: "Last 7 days", value: "last 7 days" },
     { label: "This month", value: "this month" },
     { label: "Last 3 months", value: "last 3 months" },
+    { label: "Custom date range", value: "custom" },
   ];
   const filterTabs = ["Overall", "Service", "Compliance"];
 
