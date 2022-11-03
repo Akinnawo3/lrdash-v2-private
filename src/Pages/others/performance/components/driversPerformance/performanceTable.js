@@ -21,11 +21,11 @@ const PerformanceTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   };
   const handleGradeChange = (e) => setGrade(e.target.value);
   const gradesOptions = [
-    { value: "All", label: "all" },
-    { value: "Best", label: "best" },
-    { value: "Above Av.", label: "Above Av." },
-    { value: "Below Av", label: "Below Av" },
-    { value: "Poor", label: "Poor" },
+    { label: "All", value: "all" },
+    { label: "Best", value: "best" },
+    { label: "Above Av.", value: "Above Av." },
+    { label: "Below Av", value: "Below Av" },
+    { label: "Poor", value: "Poor" },
   ];
   const filterTabs = ["Overall", "Service", "Compliance"];
 

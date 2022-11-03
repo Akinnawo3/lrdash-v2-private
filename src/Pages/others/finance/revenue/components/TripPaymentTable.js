@@ -21,11 +21,10 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   };
   const handleGradeChange = (e) => setGrade(e.target.value);
   const gradesOptions = [
-    { value: "All", label: "all" },
-    { value: "Best", label: "best" },
-    { value: "Above Av.", label: "Above Av." },
-    { value: "Below Av", label: "Below Av" },
-    { value: "Poor", label: "Poor" },
+    { label: "All time", value: "all_time" },
+    { label: "Last 7 days", value: "last 7 days" },
+    { label: "This month", value: "this month" },
+    { label: "Last 3 months", value: "last 3 months" },
   ];
   const filterTabs = ["Overall", "Service", "Compliance"];
 
@@ -70,6 +69,18 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         <Table responsive className="cus-striped-table">
           <thead className="fw-normal">
             <tr>
+              <th> </th>
+              <th className="text-green text-center" colSpan={2}>
+                Successful
+              </th>
+              <th className="text-orange text-center" colSpan={2}>
+                Undecided
+              </th>
+              <th className="text-red text-center" colSpan={2}>
+                Failed
+              </th>
+            </tr>
+            <tr>
               <th> Date</th>
               <th> Amount</th>
               <th>No. of Trips</th>
@@ -91,14 +102,6 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
                 <td>20,235,844 </td>
                 <td>43</td>
                 <td>4,783,845</td>
-
-                <td
-                  className={`text-${performancePercentageColor(
-                    Math.floor(Math.random() * 10) * 10
-                  )}`}
-                >
-                  {Math.floor(Math.random() * 10) * 10}%
-                </td>
               </tr>
             ))}
           </tbody>
