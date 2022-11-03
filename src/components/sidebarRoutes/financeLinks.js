@@ -3,8 +3,8 @@ import { FinanceIcon } from "../../assets/svgs/svgs";
 
 export const financeRoutes = {
   title: "Finance",
-  // icon: <TbCurrencyNaira />,
-  icon: <FinanceIcon />,
+  icon: <TbCurrencyNaira />,
+  // icon: <FinanceIcon />,
   link: "finance..",
   subNavs: [
     {

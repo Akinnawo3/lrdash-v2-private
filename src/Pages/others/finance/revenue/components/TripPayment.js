@@ -13,7 +13,7 @@ import Chart from "chart.js/auto";
 import FilterOptions from "../../../../../components/filter/Filter";
 // import DateTypeFilter from "./filters/DateTypeFilter";
 
-const PaymentMethodTrend = ({
+const TripPayment = ({
   loading,
   getDownloadsByDate,
   downloadsByDate,
@@ -148,4 +148,5 @@ const PaymentMethodTrend = ({
   );
 };
 
-export default PaymentMethodTrend;
+export default TripPayment;
+
