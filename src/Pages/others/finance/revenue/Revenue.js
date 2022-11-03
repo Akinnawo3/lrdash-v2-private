@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
 import PaymentMethodTrend from "./components/PaymentMethodTrend";
-import TripPayment from "./components/TripPayment";
+import TripPaymentTable from "./components/TripPaymentTable";
+import TripPayment from "./components/TripPaymentTrend";
 import TripsSummary from "./components/TripsSummary";
 
 function Revenue() {
@@ -16,6 +17,9 @@ function Revenue() {
         </Col>
         <Col md={6} className="mt-3">
           <TripPayment />
+        </Col>
+        <Col className="mt-3">
+          <TripPaymentTable />
         </Col>
       </Row>
     </div>

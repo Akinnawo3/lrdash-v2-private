@@ -72,17 +72,17 @@ const TripPaymentTrend = ({
     labels: ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"],
     datasets: [
       {
-        label: "Wallet",
+        label: "Online",
         data: [5, 1, 2, 6, 5, 13, 11],
         // fill: true,
         // backgroundColor: "rgba(75,192,192,0.2)",
         borderWidth: 2,
-        borderColor: "#00997A",
+        borderColor: "#00D2A8",
         pointRadius: 0,
         // hoverBorderJoinStyle: "miter",
       },
       {
-        label: "Cash",
+        label: "Offline",
         data: [8, 3, 2, 9, 12, 5, 2],
         // fill: true,
         // backgroundColor: "rgba(75,192,192,0.2)",
@@ -91,16 +91,7 @@ const TripPaymentTrend = ({
         pointRadius: 0,
         // hoverBorderJoinStyle: "miter",
       },
-      {
-        label: "Transfer",
-        data: [2, 5, 9, 4, 1, 5, 3],
-        // fill: true,
-        // backgroundColor: "rgba(75,192,192,0.2)",
-        borderWidth: 2,
-        borderColor: "#62007A",
-        pointRadius: 0,
-        // hoverBorderJoinStyle: "miter",
-      },
+  
     ],
   };
 
