@@ -13,7 +13,7 @@ import Chart from "chart.js/auto";
 import FilterOptions from "../../../../../components/filter/Filter";
 // import DateTypeFilter from "./filters/DateTypeFilter";
 
-const TripPayment = ({
+const TripPaymentTrend = ({
   loading,
   getDownloadsByDate,
   downloadsByDate,
@@ -120,7 +120,7 @@ const TripPayment = ({
     <Card body style={{ height: 300 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span className="fw-bold">Payment methods trend</span>
+          <span className="fw-bold">Trip Payment</span>
           <span>
             <FilterOptions
               toggled={statusToggled}
@@ -148,5 +148,5 @@ const TripPayment = ({
   );
 };
 
-export default TripPayment;
+export default TripPaymentTrend;
 

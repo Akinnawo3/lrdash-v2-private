@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
 import PaymentMethodTrend from "./components/PaymentMethodTrend";
+import TripPayment from "./components/TripPayment";
 import TripsSummary from "./components/TripsSummary";
 
 function Revenue() {
@@ -11,8 +12,10 @@ function Revenue() {
           <TripsSummary />
         </Col>
         <Col md={6} className="mt-3">
-          {/* <PaymentMethodTrend /> */}
           <PaymentMethodTrend />
+        </Col>
+        <Col md={6} className="mt-3">
+          <TripPayment />
         </Col>
       </Row>
     </div>
