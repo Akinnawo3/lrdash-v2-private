@@ -6,7 +6,9 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -20,7 +22,7 @@ body {
 
 .App {
   height: 100%;
-  font-family: 'Mulish';
+  font-family: "Mulish";
   // font-size: 22px;
 }
 
@@ -36,7 +38,6 @@ body {
   background: $gradient-bg !important;
 }
 
-
 .gradient-text {
   background: $gradient-bg !important;
   font-size: 200 !important;
@@ -46,7 +47,6 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
-
 
 td,
 th {
@@ -73,19 +73,26 @@ th {
   text-decoration: underline !important;
 }
 
-
-
 .cus-striped-table {
   tr {
-    background-color: #FCFCFC !important;
+    background-color: #fcfcfc !important;
     border-color: white !important;
     border-width: 7px !important;
   }
 }
 
-
-
 .form-check-input:checked {
   background-color: $green-color;
-  border-color: $green-color ;
+  border-color: $green-color;
+}
+
+.active > .page-link,
+.page-link.active {
+  color: var(--bs-pagination-active-color);
+  background-color: $green-color;
+  border-color: $green-color !important;
+}
+
+.page-link{
+  color: black;
 }

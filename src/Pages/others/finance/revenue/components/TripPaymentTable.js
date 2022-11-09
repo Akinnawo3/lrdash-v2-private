@@ -13,6 +13,7 @@ import {
 import Switch from "react-switch";
 import CustomSwitch from "../../../../../components/filter/CustomSwitch";
 import { gradesOptions, tripsTypes } from "../data";
+import Pagination from "react-js-pagination";
 
 const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const [tripsType, setTripsType] = useState("Online trips");
@@ -38,7 +39,6 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Trip Payment</span>
-
           <div className="cursor-pointer">
             <FilterOptions
               width={300}
@@ -99,7 +99,14 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         </Table>
         <div className="d-flex justify-content-between">
           <span>Showing 24 riders</span>
-          <div></div>
+          <Pagination
+            activePage={1}
+            itemClass="page-item"
+            linkClass="page-link"
+            itemsCountPerPage={20}
+            totalItemsCount={30}
+            onChange={() => null}
+          />
         </div>
       </div>
     </Card>
