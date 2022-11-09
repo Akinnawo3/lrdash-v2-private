@@ -29,7 +29,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   ];
   const filterTabs = ["Overall", "Service", "Compliance"];
 
-  const FilterTabs = () => (
+  const TypeSwitch = () => (
     <div className="my-3 d-flex justify-content-between">
       {filterTabs.map((item) => (
         <small
@@ -48,11 +48,12 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span>Showing 24 riders</span>
+          <span className="fw-bold">Trip Payment</span>
+
           <div className="cursor-pointer">
             <FilterOptions
-              width={320}
-              topComponent={<FilterTabs />}
+              width={200}
+              topComponent={<TypeSwitch />}
               toggleComponent={<FilterSvg />}
               toggled={toggled}
               handleToggle={handleToggle}
@@ -107,6 +108,10 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
             ))}
           </tbody>
         </Table>
+        <div className="d-flex justify-content-between">
+          <span>Showing 24 riders</span>
+          <div></div>
+        </div>
       </div>
     </Card>
   );
