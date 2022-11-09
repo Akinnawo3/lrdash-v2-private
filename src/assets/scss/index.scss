@@ -69,6 +69,10 @@ th {
   color: $red-color !important;
 }
 
+.border-green {
+  border: 1px solid $green-color !important;
+}
+
 .text-underline {
   text-decoration: underline !important;
 }
@@ -93,6 +97,6 @@ th {
   border-color: $green-color !important;
 }
 
-.page-link{
+.page-link {
   color: black;
 }

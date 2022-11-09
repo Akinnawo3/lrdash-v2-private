@@ -10,19 +10,18 @@ import {
   ExportSvg,
   FilterSvg,
 } from "../../../../../components/tablesComponents/tableSvgs";
-import Switch from "react-switch";
 import CustomSwitch from "../../../../../components/filter/CustomSwitch";
-import { gradesOptions, tripsTypes } from "../data";
+import { dateTypeOptions, tripsTypes } from "../data";
 import Pagination from "react-js-pagination";
 
 const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const [tripsType, setTripsType] = useState("Online trips");
-  const [grade, setGrade] = useState("All");
+  const [dateType, setDateType] = useState("all_time");
   const [toggled, setToggled] = useState(false);
   const handleToggle = () => {
     setToggled((prevState) => !prevState);
   };
-  const handleGradeChange = (e) => setGrade(e.target.value);
+  const handleDateTypeChange = (e) => setDateType(e.target.value);
 
   const TypeSwitch = () => (
     <div className="my-3">
@@ -46,15 +45,29 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
               toggleComponent={<FilterSvg />}
               toggled={toggled}
               handleToggle={handleToggle}
-              options={gradesOptions}
-              selectedOption={grade}
-              optionChange={handleGradeChange}
+              options={dateTypeOptions}
+              selectedOption={dateType}
+              optionChange={handleDateTypeChange}
               name="perf_table_filter"
             />
             <ExportSvg />
           </div>
         </div>
-        {/* <span>Today</span> */}
+        <div className="d-flex my-3">
+          <small
+            className="me-2 border px-2 border-success border-green"
+            style={{ backgroundColor: "#f3fafb" }}
+          >
+            Trip type : {tripsType === "Online trips" ? "Online" : "Offline"}
+          </small>
+          <small
+            className="me-2 border px-2 border-green"
+            style={{ backgroundColor: "#f3fafb" }}
+          >
+            Date :{" "}
+            {dateTypeOptions.find((item) => item.value === dateType).label}
+          </small>
+        </div>
       </CardTitle>
       <div>
         <Table responsive className="cus-striped-table">
