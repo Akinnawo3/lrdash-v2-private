@@ -12,30 +12,24 @@ import {
 } from "../../../../../components/tablesComponents/tableSvgs";
 import Switch from "react-switch";
 import CustomSwitch from "../../../../../components/filter/CustomSwitch";
+import { gradesOptions, tripsTypes } from "../data";
 
 const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
-  const [isOnlineTrips, setIsOnlineTrips] = useState(true);
+  const [tripsType, setTripsType] = useState("Online trips");
   const [grade, setGrade] = useState("All");
   const [toggled, setToggled] = useState(false);
   const handleToggle = () => {
-    setToggled(!toggled);
+    setToggled((prevState) => !prevState);
   };
   const handleGradeChange = (e) => setGrade(e.target.value);
-  const gradesOptions = [
-    { label: "All time", value: "all_time" },
-    { label: "Last 7 days", value: "last 7 days" },
-    { label: "This month", value: "this month" },
-    { label: "Last 3 months", value: "last 3 months" },
-    { label: "Custom date range", value: "custom" },
-  ];
-  const filterTabs = ["Overall", "Service", "Compliance"];
-  const handleChange = (type) => {
-    setIsOnlineTrips(type);
-  };
 
   const TypeSwitch = () => (
     <div className="my-3">
-      <CustomSwitch />
+      <CustomSwitch
+        options={tripsTypes}
+        active={tripsType}
+        onChange={setTripsType}
+      />
     </div>
   );
 
