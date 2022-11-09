@@ -10,10 +10,11 @@ import {
   ExportSvg,
   FilterSvg,
 } from "../../../../../components/tablesComponents/tableSvgs";
-import { performancePercentageColor } from "../../../../../helpers/colorsHelper";
+import Switch from "react-switch";
+import CustomSwitch from "../../../../../components/filter/CustomSwitch";
 
 const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
-  const [currentFilterTab, setCurrentFilterTab] = useState("Overall");
+  const [isOnlineTrips, setIsOnlineTrips] = useState(true);
   const [grade, setGrade] = useState("All");
   const [toggled, setToggled] = useState(false);
   const handleToggle = () => {
@@ -28,19 +29,13 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
     { label: "Custom date range", value: "custom" },
   ];
   const filterTabs = ["Overall", "Service", "Compliance"];
+  const handleChange = (type) => {
+    setIsOnlineTrips(type);
+  };
 
   const TypeSwitch = () => (
-    <div className="my-3 d-flex justify-content-between">
-      {filterTabs.map((item) => (
-        <small
-          key={item}
-          className={classNames("gradient-btn px-3 text-white py-1")}
-          onClick={() => setCurrentFilterTab(item)}
-          style={{ borderRadius: 16 }}
-        >
-          {item}
-        </small>
-      ))}
+    <div className="my-3">
+      <CustomSwitch />
     </div>
   );
 
@@ -52,7 +47,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
 
           <div className="cursor-pointer">
             <FilterOptions
-              width={200}
+              width={300}
               topComponent={<TypeSwitch />}
               toggleComponent={<FilterSvg />}
               toggled={toggled}
