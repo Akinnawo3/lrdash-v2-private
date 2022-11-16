@@ -1,38 +1,27 @@
 import { lazy } from "react";
+import DailyRevenue from "../Pages/others/finance/revenue/DailyRevenue";
 
 const Signup = lazy(() => import("../Pages/auth/Signup"));
 const Signin = lazy(() => import("../Pages/auth/Signin"));
 const ForgotPassword = lazy(() => import("../Pages/auth/ForgotPassword"));
 const Verification = lazy(() => import("../Pages/auth/Verification"));
-const RegistrationConfirmation = lazy(() =>
-  import("../Pages/auth/RegistrationConfirmation")
-);
+const RegistrationConfirmation = lazy(() => import("../Pages/auth/RegistrationConfirmation"));
 const ResetPassword = lazy(() => import("../Pages/auth/ResetPassword"));
 
 //Overview
 const Home = lazy(() => import("../Pages/others/home/Home"));
 
 //perfornmance
-const BusinessPerformance = lazy(() =>
-  import("../Pages/others/performance/BusinessPerformance")
-);
-const DriverPerformance = lazy(() =>
-  import("../Pages/others/performance/DriverPerformance")
-);
+const BusinessPerformance = lazy(() => import("../Pages/others/performance/BusinessPerformance"));
+const DriverPerformance = lazy(() => import("../Pages/others/performance/DriverPerformance"));
 const WatchList = lazy(() => import("../Pages/others/performance/WatchList"));
 
 //finance
 const Revenue = lazy(() => import("../Pages/others/finance/revenue/Revenue"));
-const ServicePayment = lazy(() =>
-  import("../Pages/others/finance/service-payment/ServicePayment")
-);
+const ServicePayment = lazy(() => import("../Pages/others/finance/service-payment/ServicePayment"));
 const Wallet = lazy(() => import("../Pages/others/finance/wallet/Wallet"));
-const DebtService = lazy(() =>
-  import("../Pages/others/finance/debtService/DebtService")
-);
-const Disbursement = lazy(() =>
-  import("../Pages/others/finance/disbursemant/Disbursement")
-);
+const DebtService = lazy(() => import("../Pages/others/finance/debtService/DebtService"));
+const Disbursement = lazy(() => import("../Pages/others/finance/disbursemant/Disbursement"));
 
 export const authRoutes = [
   { path: "/signin", component: Signin, title: "Signin", leadText: "" },
@@ -57,30 +46,31 @@ export const userRoutes = [
     component: DriverPerformance,
     title: "Performance",
   },
-  { path: "/performance/watchlist", component: WatchList, title: "Watch List" },
+  { path: "/performance/watchlist", component: WatchList, title: "Performance" },
 
   //finance
-  { path: "/finance/revenue", component: Revenue, title: "Revenue" },
+  { path: "/finance/revenue", component: Revenue, title: "Finance" },
+  { path: "/finance/revenue/:date", component: DailyRevenue, title: "Finance" },
 
   {
     path: "/finance/service-payment",
     component: ServicePayment,
-    title: "Service Payment",
+    title: "Finance",
   },
   {
     path: "/finance/wallet",
     component: Wallet,
-    title: "Wallet",
+    title: "Finance",
   },
   {
     path: "/finance/debt-service",
     component: DebtService,
-    title: "Debt Service",
+    title: "Finance",
   },
   {
     path: "/finance/disbursement",
     component: Disbursement,
-    title: "Disbursement",
+    title: "Finance",
   },
 ];
 

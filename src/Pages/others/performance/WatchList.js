@@ -7,7 +7,7 @@ import PerformanceTable from './components/driversPerformance/performanceTable'
 
 function WatchList() {
     return (
-        <div className="table-wrapper mb-3">
+        <div className="mb-3">
             <Row>
                 <Col md={7} lg={9}>
                     <Row>
