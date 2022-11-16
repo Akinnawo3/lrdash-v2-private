@@ -1,5 +1,18 @@
 import { NairaFailed, NairaSuccess, NairaUndecided } from "../../../../assets/svgs/financeSvgs";
 
+export const statusesOptions = [
+  { value: "all", label: "All Statuses" },
+  { value: "success", label: "Successful" },
+  { value: "undecided", label: "Undecided" },
+  { value: "failed", label: "Failed" },
+];
+export const dateTypeOption = [
+  { value: "last_7_days", label: "Last 7 days" },
+  { value: "this_month", label: "This month" },
+  { value: "last_3_months", label: "Last 3 months" },
+  { value: "all_time", label: "All time" },
+];
+
 export const dateTypeOptions = [
   { label: "All time", value: "all_time" },
   { label: "Last 7 days", value: "last 7 days" },

@@ -1,12 +1,12 @@
 import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from "reactstrap";
-const FilterOptions = ({ toggled, handleToggle, selectedOption, optionChange, options, name, toggleComponent, topComponent,bottomComponent, width }) => {
-  console.log(selectedOption)
-  console.log(options)
+const FilterOptions = ({ toggled, handleToggle, selectedOption, optionChange, options, name, toggleComponent, topComponent, bottomComponent, width }) => {
+  console.log(selectedOption);
+  console.log(options);
   return (
     <Dropdown direction="top" className="d-inline" isOpen={toggled} toggle={handleToggle}>
       <DropdownToggle caret={!toggleComponent} className="btn-sm p-0 text-muted px-1 border-white " style={{ backgroundColor: "white", width: 100 }}>
         {/* {toggleComponent ? toggleComponent : selectedOption.slice(0, 13)} */}
-        {toggleComponent ? toggleComponent : options.find((item) => item?.value === selectedOption)?.label}
+        {toggleComponent ? toggleComponent : options.find((item) => item?.value === selectedOption)?.label.slice(0, 13)}
       </DropdownToggle>
       <DropdownMenu className="px-3" style={{ width: width ? width : 250 }}>
         <div className="mb-3">

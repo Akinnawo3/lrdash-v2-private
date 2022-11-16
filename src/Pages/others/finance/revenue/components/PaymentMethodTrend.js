@@ -1,27 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import {
-  Button,
-  Card,
-  CardTitle,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-} from "reactstrap";
+import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input } from "reactstrap";
 import Chart from "chart.js/auto";
 import FilterOptions from "../../../../../components/filter/Filter";
+import { dateTypeOptions, statusesOptions } from "../data";
 // import DateTypeFilter from "./filters/DateTypeFilter";
 
-const PaymentMethodTrend = ({
-  loading,
-  getDownloadsByDate,
-  downloadsByDate,
-}) => {
+const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   // const [startDate, setStartDate] = useState(getFirstDayOfMonth());
   // const [endDate, setEndDate] = useState(getTodayDate());
-  const [dateType, setDateType] = useState("this_week");
-  const [status, setStatus] = useState("Successfull");
+  const [dateType, setDateType] = useState("all_time");
+  const [status, setStatus] = useState("all");
   const [toggled, setToggled] = useState(false);
   const [statusToggled, setStatusToggled] = useState(false);
   const handleToggle = () => {
@@ -104,45 +93,32 @@ const PaymentMethodTrend = ({
     ],
   };
 
-  const statusesOptions = [
-    { value: "all", label: "All Statuses" },
-    { value: "success", label: "Successful" },
-    { value: "undecided", label: "Undecided" },
-    { value: "failed", label: "Failed" },
-  ];
-  const dateTypeOption = [
-    { value: "Last 7 days", label: "Last 7 days" },
-    { value: "This month", label: "This month" },
-    { value: "Last 3 months", label: "Last 3 months" },
-    { value: "All time", label: "All time" },
-  ];
+  const CustomDateComponent = () =>
+    dateType === "custom" ? (
+      <div className="d-flex align-items-center mx-2">
+        <div>
+          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
+        </div>
+        <div className="mx-1">to</div>
+        <div>
+          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
+        </div>
+      </div>
+    ) : null;
+
   return (
     <Card body style={{ height: 300 }}>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Payment methods trend</span>
           <span>
-            <FilterOptions
-              toggled={statusToggled}
-              handleToggle={handleStatusToggled}
-              options={statusesOptions}
-              selectedOption={status}
-              optionChange={handleStatusChange}
-              name="status"
-            />
-            <FilterOptions
-              toggled={toggled}
-              handleToggle={handleToggle}
-              options={dateTypeOption}
-              selectedOption={dateType}
-              optionChange={handleDateTypeChange}
-              name="date-type"
-            />
+            <FilterOptions toggled={statusToggled} handleToggle={handleStatusToggled} options={statusesOptions} selectedOption={status} optionChange={handleStatusChange} name="status" />
+            <FilterOptions width={325} toggled={toggled} handleToggle={handleToggle} bottomComponent={<CustomDateComponent />} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="date-type" />
           </span>
         </div>
       </CardTitle>
       <div>
-        <Line data={data} options={options} height={130}/>
+        <Line data={data} options={options} height={130} />
       </div>
     </Card>
   );
