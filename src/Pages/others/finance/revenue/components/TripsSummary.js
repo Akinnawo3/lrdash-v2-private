@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardBody, Col, Row } from "reactstrap";
 import { NairaFailed, NairaSuccess, NairaUndecided } from "../../../../../assets/svgs/financeSvgs";
+import { CustomDateComponent } from "../../../../../components/filter/CustomDateComponent";
 import FilterOptions from "../../../../../components/filter/Filter";
 import { dateTypeOptions, tripsItems, tripsTypesOptions } from "../data";
 
@@ -28,8 +29,24 @@ function TripsSummary() {
           <div>Online Trips</div>
           <div>
             <small>
-              <FilterOptions toggled={tripTypeFilterToggled} handleToggle={handleTripTypeFilterToggle} options={tripsTypesOptions} selectedOption={tripType} optionChange={handleTripTypeChange} name="trip_type" />
-              <FilterOptions toggled={dateTypeFilterToggle} handleToggle={handleDateTypeFilterToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="date_type" />
+              <FilterOptions
+                toggled={tripTypeFilterToggled}
+                handleToggle={handleTripTypeFilterToggle}
+                options={tripsTypesOptions}
+                selectedOption={tripType}
+                optionChange={handleTripTypeChange}
+                name="trip_type"
+              />
+              <FilterOptions
+                width={dateType === "custom" ? 325 : null}
+                toggled={dateTypeFilterToggle}
+                handleToggle={handleDateTypeFilterToggle}
+                options={dateTypeOptions}
+                bottomComponent={<CustomDateComponent isCustom={dateType === "custom"} startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />}
+                selectedOption={dateType}
+                optionChange={handleDateTypeChange}
+                name="date_type"
+              />
             </small>
           </div>
         </div>

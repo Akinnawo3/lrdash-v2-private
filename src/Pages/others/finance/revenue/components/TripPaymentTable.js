@@ -16,6 +16,8 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const navigate = useNavigate();
   const [tripsType, setTripsType] = useState("Online trips");
   const [dateType, setDateType] = useState("all_time");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [toggled, setToggled] = useState(false);
   const handleToggle = () => {
     setToggled((prevState) => !prevState);
@@ -27,14 +29,24 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
     </div>
   );
 
-
   return (
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Trip Payment</span>
           <div className="cursor-pointer">
-            <FilterOptions width={325} topComponent={<TypeSwitch />} bottomComponent={<CustomDateComponent isCustom={ dateType === "custom" }/>} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="perf_table_filter" />
+            <FilterOptions
+              width={325}
+              topComponent={<TypeSwitch />}
+              bottomComponent={<CustomDateComponent isCustom={dateType === "custom"} startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />}
+              toggleComponent={<FilterSvg />}
+              toggled={toggled}
+              handleToggle={handleToggle}
+              options={dateTypeOptions}
+              selectedOption={dateType}
+              optionChange={handleDateTypeChange}
+              name="perf_table_filter"
+            />
             <ExportSvg />
           </div>
         </div>

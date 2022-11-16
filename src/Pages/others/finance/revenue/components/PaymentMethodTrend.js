@@ -12,6 +12,8 @@ const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) =>
   // const [endDate, setEndDate] = useState(getTodayDate());
   const [dateType, setDateType] = useState("all_time");
   const [status, setStatus] = useState("all");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [toggled, setToggled] = useState(false);
   const [statusToggled, setStatusToggled] = useState(false);
   const handleToggle = () => {
@@ -101,7 +103,16 @@ const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) =>
           <span className="fw-bold">Payment methods trend</span>
           <span>
             <FilterOptions toggled={statusToggled} handleToggle={handleStatusToggled} options={statusesOptions} selectedOption={status} optionChange={handleStatusChange} name="status" />
-            <FilterOptions width={325} toggled={toggled} handleToggle={handleToggle} bottomComponent={<CustomDateComponent isCustom={dateType === "custom"} />} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="date-type" />
+            <FilterOptions
+              width={325}
+              toggled={toggled}
+              handleToggle={handleToggle}
+              bottomComponent={<CustomDateComponent isCustom={dateType === "custom"} startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />}
+              options={dateTypeOptions}
+              selectedOption={dateType}
+              optionChange={handleDateTypeChange}
+              name="date-type"
+            />
           </span>
         </div>
       </CardTitle>
