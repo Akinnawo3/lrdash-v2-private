@@ -1,3 +1,5 @@
+import { NairaFailed, NairaSuccess, NairaUndecided } from "../../../../assets/svgs/financeSvgs";
+
 export const dateTypeOptions = [
   { label: "All time", value: "all_time" },
   { label: "Last 7 days", value: "last 7 days" },
@@ -10,7 +12,35 @@ export const timeOptions = [
   { label: "Afternoon (12pm - 5pm)", value: "afternoon" },
   { label: "Evening (5pm - 12am)", value: "evening" },
   { label: "Custom time range", value: "custom" },
-
 ];
 
 export const tripsTypes = ["Online trips", "Offline trips"];
+
+export const tripsTypesOptions = [
+  { label: "All trips", value: "all" },
+  { label: "Online trips", value: "online" },
+  { label: "Drops", value: "drops" },
+];
+
+export const tripsItems = [
+  {
+    title: "Total",
+    figure: "3,123,456,789",
+    icon: NairaSuccess,
+  },
+  {
+    title: "Successful",
+    figure: "3,123,456,789",
+    icon: NairaSuccess,
+  },
+  {
+    title: "Undecided",
+    figure: "3,123,456,789",
+    icon: NairaUndecided,
+  },
+  {
+    title: "Failed",
+    figure: "3,123,456,789",
+    icon: NairaFailed,
+  },
+];

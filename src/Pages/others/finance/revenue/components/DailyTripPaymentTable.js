@@ -43,7 +43,7 @@ const DailyTripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate })
     <Card body>
       <CardTitle className=" justify-content-between">
         <div className="justify-content-between d-flex w-100">
-          <span className="fw-bold">Trip Payment</span>
+          <span className={classNames("card-title")}>Trip Payment</span>
           <div className="cursor-pointer">
             <FilterOptions width={300} topComponent={<TypeSwitch />} bottomComponent={<CustomTimeComponent />} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={timeOptions} selectedOption={time} optionChange={handleTimeChange} name="trips_table_filter" />
             <ExportSvg />
@@ -74,7 +74,7 @@ const DailyTripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate })
           </thead>
           <tbody>
             {Array.from({ length: 12 }).map((item, index) => (
-              <tr key={index} className={classNames("cursor-pointer")} onClick={() => navigate("/finance/revenue/particular_date")}>
+              <tr key={index} className={classNames("cursor-pointer")} onClick={() => navigate("/finance/trip-payment/payment_id")}>
                 <td>
                   <div>23rd Aug. 2022</div>
                   <div>2:00pm</div>

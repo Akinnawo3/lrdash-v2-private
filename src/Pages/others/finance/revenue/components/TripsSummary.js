@@ -1,31 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, Col, Row } from "reactstrap";
 import { NairaFailed, NairaSuccess, NairaUndecided } from "../../../../../assets/svgs/financeSvgs";
+import FilterOptions from "../../../../../components/filter/Filter";
+import { tripsItems, tripsTypesOptions } from "../data";
 
 function TripsSummary() {
-  const tripsItems = [
-    {
-      title: "Total",
-      figure: "3,123,456,789",
-      icon: NairaSuccess,
-    },
-    {
-      title: "Successful",
-      figure: "3,123,456,789",
-      icon: NairaSuccess,
-    },
-    {
-      title: "Undecided",
-      figure: "3,123,456,789",
-      icon: NairaUndecided,
-    },
-    {
-      title: "Failed",
-      figure: "3,123,456,789",
-      icon: NairaFailed,
-    },
-  ];
-
+  const [tripType, setTripType] = useState("all");
+  const [tripTypeFilterToggled, setTripTypeFilterToggled] = useState(false);
+  const handleTripTypeFilterToggle = () => setTripTypeFilterToggled((prevState) => !prevState);
+  const handleTripTypeChange = (e) => {
+    setTripType(e.target.value);
+  };
   return (
     <Card>
       <CardBody>
@@ -33,8 +18,8 @@ function TripsSummary() {
           <div>Online Trips</div>
           <div>
             <small>
-              <span>Online Trips</span>
-              <span className="ms-2">Today</span>
+                {/* <FilterOptions toggled={tripTypeFilterToggled} handleToggle={handleTripTypeFilterToggle} options={tripsTypesOptions} selectedOption={tripType} optionChange={handleTripTypeChange} name="trip_type" /> */}
+                <FilterOptions toggled={tripTypeFilterToggled} handleToggle={handleTripTypeFilterToggle} options={tripsTypesOptions} selectedOption={tripType} optionChange={handleTripTypeChange} name="trip_type" />
             </small>
           </div>
         </div>
