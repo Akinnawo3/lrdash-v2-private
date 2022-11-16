@@ -4,6 +4,7 @@ import { Button, Card, CardTitle, Dropdown, DropdownItem, DropdownMenu, Dropdown
 import Chart from "chart.js/auto";
 import FilterOptions from "../../../../../components/filter/Filter";
 import { dateTypeOptions, statusesOptions } from "../data";
+import { CustomDateComponent } from "../../../../../components/filter/CustomDateComponent";
 // import DateTypeFilter from "./filters/DateTypeFilter";
 
 const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) => {
@@ -93,19 +94,6 @@ const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) =>
     ],
   };
 
-  const CustomDateComponent = () =>
-    dateType === "custom" ? (
-      <div className="d-flex align-items-center mx-2">
-        <div>
-          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
-        </div>
-        <div className="mx-1">to</div>
-        <div>
-          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
-        </div>
-      </div>
-    ) : null;
-
   return (
     <Card body style={{ height: 300 }}>
       <CardTitle className=" justify-content-between">
@@ -113,7 +101,7 @@ const PaymentMethodTrend = ({ loading, getDownloadsByDate, downloadsByDate }) =>
           <span className="fw-bold">Payment methods trend</span>
           <span>
             <FilterOptions toggled={statusToggled} handleToggle={handleStatusToggled} options={statusesOptions} selectedOption={status} optionChange={handleStatusChange} name="status" />
-            <FilterOptions width={325} toggled={toggled} handleToggle={handleToggle} bottomComponent={<CustomDateComponent />} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="date-type" />
+            <FilterOptions width={325} toggled={toggled} handleToggle={handleToggle} bottomComponent={<CustomDateComponent isCustom={dateType === "custom"} />} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="date-type" />
           </span>
         </div>
       </CardTitle>

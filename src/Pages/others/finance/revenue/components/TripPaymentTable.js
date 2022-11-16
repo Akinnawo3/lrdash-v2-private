@@ -10,6 +10,7 @@ import CustomSwitch from "../../../../../components/filter/CustomSwitch";
 import { dateTypeOptions, tripsTypes } from "../data";
 import Pagination from "react-js-pagination";
 import { useNavigate } from "react-router";
+import { CustomDateComponent } from "../../../../../components/filter/CustomDateComponent";
 
 const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
   const navigate = useNavigate();
@@ -25,18 +26,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
       <CustomSwitch options={tripsTypes} active={tripsType} onChange={setTripsType} />
     </div>
   );
-  const CustomDateComponent = () =>
-    dateType === "custom" ? (
-      <div className="d-flex align-items-center mx-2">
-        <div>
-          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
-        </div>
-        <div className="mx-1">to</div>
-        <div>
-        <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
-        </div>
-      </div>
-    ) : null;
+
 
   return (
     <Card body>
@@ -44,7 +34,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Trip Payment</span>
           <div className="cursor-pointer">
-            <FilterOptions width={325} topComponent={<TypeSwitch />} bottomComponent={<CustomDateComponent />} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="perf_table_filter" />
+            <FilterOptions width={325} topComponent={<TypeSwitch />} bottomComponent={<CustomDateComponent isCustom={ dateType === "custom" }/>} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="perf_table_filter" />
             <ExportSvg />
           </div>
         </div>

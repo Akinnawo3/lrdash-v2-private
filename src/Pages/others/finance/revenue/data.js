@@ -15,6 +15,7 @@ export const dateTypeOption = [
 
 export const dateTypeOptions = [
   { label: "All time", value: "all_time" },
+  { label: "Today only", value: "today" },
   { label: "Last 7 days", value: "last 7 days" },
   { label: "This month", value: "this month" },
   { label: "Last 3 months", value: "last 3 months" },
