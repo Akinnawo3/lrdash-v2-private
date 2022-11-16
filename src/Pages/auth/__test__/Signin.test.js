@@ -25,7 +25,7 @@ describe("Signin Component tests", () => {
       </TestRenderTemplate>
     );
   });
-  it("Phone number and email input should be initially empty", () => {
+  it("Phone number and password input should be initially empty", () => {
     render(
       <TestRenderTemplate>
         <Signin />
@@ -36,7 +36,33 @@ describe("Signin Component tests", () => {
     expect(telephoneInputEl).toHaveTextContent("");
     expect(passwordInputEl).toHaveTextContent("");
   });
-  it("submit button shoulkd be initially disables", () => {
+
+  it("Password input should initially be of type password", () => {
+    render(
+      <TestRenderTemplate>
+        <Signin />
+      </TestRenderTemplate>
+    );
+    const passwordInputEl = screen.getByPlaceholderText(/enter password/i);
+    expect(passwordInputEl).toHaveAttribute("type", "password");
+  });
+
+  it("Password input should be of type text when the peep icon is clicked", () => {
+    render(
+      <TestRenderTemplate>
+        <Signin />
+      </TestRenderTemplate>
+    );
+    const passwordInputEl = screen.getByPlaceholderText(/enter password/i);
+    const passwordPeepEl = screen.getByTestId(/password-peep/i);
+    expect(passwordInputEl).toHaveAttribute("type", "password");
+    fireEvent.click(passwordPeepEl);
+    expect(passwordInputEl).toHaveAttribute("type", "text");
+    fireEvent.click(passwordPeepEl);
+    expect(passwordInputEl).toHaveAttribute("type", "password");
+  });
+
+  it("submit button shoulkd be initially disabled", () => {
     render(
       <TestRenderTemplate>
         <Signin />
