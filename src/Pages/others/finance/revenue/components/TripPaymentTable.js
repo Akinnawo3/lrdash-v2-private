@@ -1,10 +1,9 @@
-import { TableCell, TableRow, TableBody, TableHead } from "@material-ui/core";
 import classNames from "classnames";
 // import {TableCell, TableRow,TableBody,TableHead} from "reactstrap";
 import React, { Fragment, useEffect, useState } from "react";
 import { BsFileEarmarkArrowUp } from "react-icons/bs";
 
-import { Card, CardTitle, Table } from "reactstrap";
+import { Card, CardTitle, Input, Table } from "reactstrap";
 import FilterOptions from "../../../../../components/filter/Filter";
 import { ExportSvg, FilterSvg } from "../../../../../components/tablesComponents/tableSvgs";
 import CustomSwitch from "../../../../../components/filter/CustomSwitch";
@@ -26,6 +25,18 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
       <CustomSwitch options={tripsTypes} active={tripsType} onChange={setTripsType} />
     </div>
   );
+  const CustomDateComponent = () =>
+    dateType === "custom" ? (
+      <div className="d-flex align-items-center mx-2">
+        <div>
+          <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
+        </div>
+        <div className="mx-1">to</div>
+        <div>
+        <Input className="px-2" type="date" placeholder="hh/mm" style={{ width: 132 }} />
+        </div>
+      </div>
+    ) : null;
 
   return (
     <Card body>
@@ -33,7 +44,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
         <div className="justify-content-between d-flex w-100">
           <span className="fw-bold">Trip Payment</span>
           <div className="cursor-pointer">
-            <FilterOptions width={300} topComponent={<TypeSwitch />} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="perf_table_filter" />
+            <FilterOptions width={325} topComponent={<TypeSwitch />} bottomComponent={<CustomDateComponent />} toggleComponent={<FilterSvg />} toggled={toggled} handleToggle={handleToggle} options={dateTypeOptions} selectedOption={dateType} optionChange={handleDateTypeChange} name="perf_table_filter" />
             <ExportSvg />
           </div>
         </div>
@@ -74,7 +85,7 @@ const TripPaymentTable = ({ loading, getDownloadsByDate, downloadsByDate }) => {
           </thead>
           <tbody>
             {Array.from({ length: 12 }).map((item, index) => (
-              <tr key={index} onClick={() => navigate("/finance/revenue/particular_date")}>
+              <tr key={index} className={classNames("cursor-pointer")} onClick={() => navigate("/finance/revenue/particular_date")}>
                 <td>23rd Aug. 2022</td>
                 <td>20,235,844 </td>
                 <td>43</td>

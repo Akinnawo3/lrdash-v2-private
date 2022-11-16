@@ -5,15 +5,15 @@ const CustomSwitch = ({ options, active, onChange }) => {
     <div className="d-inline-block ">
       <div
         className="d-flex justify-content-between py-1"
-        style={{ backgroundColor: "#F3F6F7", borderRadius: 16 }}
+        style={{ backgroundColor: "#F3F6F7", borderRadius: 19 }}
       >
         {options.map((item) => (
           <div
             key="item"
-            className={`py-1 px-4 ${
+            className={`py-2 px-4 ${
               active === item && " gradient-btn text-white"
             }`}
-            style={{ borderRadius: 16 }}
+            style={{ borderRadius: 19 }}
             onClick={() => onChange(item)}
           >
             {item}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, Col, Row } from "reactstrap";
-import { NairaSuccess } from "../../../../assets/svgs/financeSvgs";
+import { NairaPurple, NairaSuccess } from "../../../../assets/svgs/financeSvgs";
 import { TripsOrange, WatchListSVG1 } from "../../../../assets/svgs/svgs";
 import DailyTripPaymentTable from "./components/DailyTripPaymentTable";
 
@@ -40,12 +40,21 @@ const DailyRevenue = () => {
           <Card>
             <CardBody>
               <div className="d-flex justify-content-between">
-                <TripsOrange />
-                <small className="gradient-text fw-bold">+34%</small>
+                <NairaPurple />
               </div>
-              <div>
-                <div className="fs-4">136</div>
-                <small className="text-muted lh-small">No. Of Trips</small>
+              <div className="d-flex justify-content-between">
+                <div>
+                  <div className="fs-4">136</div>
+                  <small className="text-muted lh-small">Successful</small>
+                </div>
+                <div>
+                  <div className="fs-4">136</div>
+                  <small className="text-muted lh-small">Unsuccessful</small>
+                </div>
+                <div>
+                  <div className="fs-4">136</div>
+                  <small className="text-muted lh-small">Undecided</small>
+                </div>
               </div>
             </CardBody>
           </Card>
