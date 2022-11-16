@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardBody, Col, Row } from "reactstrap";
-import { WatchListSVG1 } from "../../../../assets/svgs/svgs";
+import { NairaSuccess } from "../../../../assets/svgs/financeSvgs";
+import { TripsOrange, WatchListSVG1 } from "../../../../assets/svgs/svgs";
 
 const DailyRevenue = () => {
   return (
@@ -10,12 +11,26 @@ const DailyRevenue = () => {
           <Card>
             <CardBody>
               <div className="d-flex justify-content-between">
-                <WatchListSVG1 />
+                <NairaSuccess />
                 <small className="gradient-text fw-bold">+34%</small>
               </div>
               <div>
-                <div className="fs-4">4,963</div>
-                <small className="text-muted lh-small">Total Driver</small>
+                <div className="fs-4">4,963,495.95</div>
+                <small className="text-muted lh-small">Total</small>
+              </div>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col className="mt-3" md={3}>
+          <Card>
+            <CardBody>
+              <div className="d-flex justify-content-between">
+                <TripsOrange />
+                <small className="gradient-text fw-bold">+34%</small>
+              </div>
+              <div>
+                <div className="fs-4">136</div>
+                <small className="text-muted lh-small">No. Of Trips</small>
               </div>
             </CardBody>
           </Card>
