@@ -6,7 +6,7 @@ const DailyRevenue = () => {
   return (
     <div className="mb-3">
       <Row>
-        <Col className="mt-3" md={4}>
+        <Col className="mt-3" md={3}>
           <Card>
             <CardBody>
               <div className="d-flex justify-content-between">

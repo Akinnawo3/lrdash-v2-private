@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import DailyRevenue from "../Pages/others/finance/revenue/DailyRevenue";
 
 const Signup = lazy(() => import("../Pages/auth/Signup"));
 const Signin = lazy(() => import("../Pages/auth/Signin"));
@@ -18,6 +17,7 @@ const WatchList = lazy(() => import("../Pages/others/performance/WatchList"));
 
 //finance
 const Revenue = lazy(() => import("../Pages/others/finance/revenue/Revenue"));
+const DailyRevenue = lazy(() => import("../Pages/others/finance/revenue/DailyRevenue"));
 const ServicePayment = lazy(() => import("../Pages/others/finance/service-payment/ServicePayment"));
 const Wallet = lazy(() => import("../Pages/others/finance/wallet/Wallet"));
 const DebtService = lazy(() => import("../Pages/others/finance/debtService/DebtService"));
@@ -50,7 +50,7 @@ export const userRoutes = [
 
   //finance
   { path: "/finance/revenue", component: Revenue, title: "Finance" },
-  { path: "/finance/revenue/:date", component: DailyRevenue, title: "Finance" },
+  { path: "/finance/revenue/:id", component: DailyRevenue, title: "Finance" },
 
   {
     path: "/finance/service-payment",
